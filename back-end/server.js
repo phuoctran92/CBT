@@ -9,7 +9,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-
+const authRoute = require("./routes/authRoute")
 const port = process.env.APP_PORT;
 
 // Cors
@@ -26,6 +26,8 @@ app.get("/", (req, res, next) => {
     },
   });
 });
+
+app.use("/api/v1/auth", authRoute)
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
