@@ -13,9 +13,9 @@ import PopupErrorMess from 'components/PopupErrorMess'
 import PopupSuccess from 'components/PopupSuccess';
 
 // import PopupConfirm from 'components/PopupConfirm';
-//import { GET_PROFILE_REQUEST } from 'store/reducers/profile/actionTypes';
-//import { IProfileState } from 'store/reducers/profile';
-//import { startWatchStorage } from 'services/configApi/configCBTApi';
+import { GET_PROFILE_REQUEST } from 'store/reducers/profile/actionTypes';
+import { IProfileState } from 'store/reducers/profile';
+import { startWatchStorage } from 'services/configApi/configCBTApi';
 import { sleep } from 'helpers';
 
 const AppContainer = styled.div`
@@ -27,8 +27,8 @@ type AppProps = {
 };
 
 const App = memo((props: AppProps) => {
-  //const dispatch = useDispatch();
-  //const profile: IProfileState = useSelector((state: reducerType) => state.profile)
+  const dispatch = useDispatch();
+  const profile: IProfileState = useSelector((state: reducerType) => state.profile)
   const isLoading = useSelector((state: reducerType) => state.global.isLoading)
   const token = localStorage.getItem(ACCESS_TOKEN);
   const [isLogin, setIsLogin] = useState(!!token)
@@ -41,13 +41,13 @@ const App = memo((props: AppProps) => {
     if (!isLogin) setIsLogin(true);
     if (!isFirstApp) {
       setIsFirstApp(true);
-      //dispatch({ type: GET_PROFILE_REQUEST })
+      dispatch({ type: GET_PROFILE_REQUEST })
     }
   }
 
-  // useEffect(() => {
-  //   startWatchStorage();
-  // }, [])
+  useEffect(() => {
+    startWatchStorage();
+  }, [])
 
   useEffect(() => {
     const checkRenderApp = async () => {
@@ -61,7 +61,7 @@ const App = memo((props: AppProps) => {
     }
     checkRenderApp();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFirstApp])
+  }, [isFirstApp, profile])
 
   if (!isRenderApp) {
     return <LoadingFullPage isFullPage={false} isShow={true} />

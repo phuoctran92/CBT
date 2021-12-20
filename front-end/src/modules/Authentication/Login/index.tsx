@@ -36,11 +36,13 @@ const Login = () => {
     dispatch({ type: actionGlobal.SET_LOADING_PAGE, payload: true })
     await authenticationServices
       .login(values)
-      .then((res) => {
+      .then((data) => {
+        console.log(data);
+
         // const dataToken = parseJwt(res.data.token)
-        localStorage.setItem(ACCESS_TOKEN, res.data.token);
-        setToken(res.data.token);
-        history.push(routes.default);
+        // localStorage.setItem(ACCESS_TOKEN, res.data.token);
+        // setToken(res.data.token);
+        history.push(routes.dashboard);
       })
       .catch((e) => {
         dispatch({
