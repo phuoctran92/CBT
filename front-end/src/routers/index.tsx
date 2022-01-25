@@ -22,7 +22,19 @@ const Routes = memo((props: IRoutes) => {
     <Suspense fallback={<LoadingFullPage isShow={true} />}>
       <Switch>
         <Redirect exact from={routes.default} to={routes.login} />
-        <PrivateRoute exact isLoggedIn={!props.isLoggedIn} urlRedirect={routes.default} path={routes.login} component={Authentication} />
+        <PrivateRoute
+          exact
+          isLoggedIn={!props.isLoggedIn}
+          urlRedirect={routes.default}
+          path={routes.login}
+          component={Authentication}
+        />
+        <PrivateRoute
+          path={routes.default}
+          urlRedirect={routes.login}
+          component={MasterLayout}
+          isLoggedIn={!props.isLoggedIn}
+        />
       </Switch>
     </Suspense>)
 })

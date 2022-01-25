@@ -13,7 +13,7 @@ import icCarrotAdd from 'asset/img/ic-carrot-addcarrot.svg';
 import icCarrotAddYellow from 'asset/img/ic-carrot-add-yellow.svg';
 import icCarrotRecommend from 'asset/img/ic-carrot-recommend.svg';
 import icCalculate from 'asset/img/ic-calculate.svg';
-import icLogo from 'asset/img/ic-logo.png';
+import icLogo from 'asset/img/ic-logo.svg';
 import icLogoMenu from 'asset/img/ic-logo-menu.svg';
 import icEyeClose from 'asset/img/ic-eye-close.svg';
 import icEyeOpen from 'asset/img/ic-eye-open.svg';
@@ -235,7 +235,12 @@ import icShare from 'asset/img/ic-share.svg'
 import icError from 'asset/img/ic-error.svg';
 import icTierPlatinum from 'asset/img/ic-tier-platinum.svg';
 import icDoubleCheck from 'asset/img/ic-double-check.svg';
-
+// ===================== Images =========================
+import CBTicFileText from 'asset/img/cbt-ic-filetext.svg';
+import CBTicGrid4 from 'asset/img/cbt-ic-grid4.svg';
+import CBTicHouse from 'asset/img/cbt-ic-house.svg';
+import CBTicStack from 'asset/img/cbt-ic-stack.svg';
+import CBTicUsers from 'asset/img/cbt-ic-users.svg';
 
 const images = {
   // ===================== Images =========================
@@ -474,8 +479,12 @@ const images = {
   icOnboarding,
   icQuestionOnboarding,
   icDoubleCheck,
-
-
+  // ===================== Images =========================
+  CBTicFileText,
+  CBTicGrid4,
+  CBTicHouse,
+  CBTicStack,
+  CBTicUsers,
 }
 
 export default images

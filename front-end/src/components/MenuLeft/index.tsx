@@ -4,6 +4,7 @@ import {
   List,
   ListItem,
   ListItemIcon,
+  ListItemText,
   Avatar,
 } from "@material-ui/core";
 import useStyles from "./styles";
@@ -36,20 +37,7 @@ const MenuLeft = () => {
     <div className={classes.container}>
       <Grid className={classes.toolbar}>
         <Grid className={classes.logo}>
-          <Link to={routes.default} style={{ textDecoration: "none" }}>
-            <img src={Images.icLogoMenu} alt="logo menu" />
-          </Link>
-        </Grid>
-        <Grid className={classes.profile} >
-          <Link to={"/"} style={{ textDecoration: "none" }}>
-            <Grid className={classes.containerAvatar}>
-              <Avatar src={''} />
-              <div className={classes.textAvatar}>
-                <p>userName</p>
-                <p>Manager</p>
-              </div>
-            </Grid>
-          </Link>
+          <img src={Images.icLogo} alt="logo menu" />
         </Grid>
         <div className={classes.list}>
           <div>
@@ -61,21 +49,21 @@ const MenuLeft = () => {
                     component={Link}
                     to={route.path}
                     selected={checkActiveMenu(route)}
-
                   >
                     <ListItemIcon>{route.icon}</ListItemIcon>
+                    <ListItemText primary={route.title} />
                   </ListItem>
                 </Fragment>
               ))}
             </List>
-            <Link to='#' onClick={handleLogout} style={{ textDecoration: "none" }}>
-              <Grid className={classes.containerLogout}>
-                <img src={Images.icLogout} alt="" />
-                <p>Log Out</p>
-              </Grid>
-            </Link>
           </div>
         </div>
+        <Link to='#' onClick={handleLogout} style={{ textDecoration: "none" }}>
+          <Grid className={classes.containerLogout}>
+            <img src={Images.icLogout} alt="" />
+            <p>Log Out</p>
+          </Grid>
+        </Link>
       </Grid>
     </div>
   );

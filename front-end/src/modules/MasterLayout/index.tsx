@@ -19,7 +19,7 @@ function MasterLayout() {
       <div className={classes.layout}>
         <main className={classes.content}>
           <Switch>
-            <Redirect exact from={routes.default} to={routes.dashboard} />
+            <Redirect exact from={routes.default} to={routes.workspace} />
           </Switch>
         </main>
       </div>

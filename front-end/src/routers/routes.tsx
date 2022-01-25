@@ -1,11 +1,19 @@
 interface Routes {
   default: string;
-  dashboard: string;
+  workspace: string;
+  user: string;
+  question: string;
+  test: string;
+  class: string;
   login: string;
 }
 
 export const routes: Routes = {
   default: '/',
-  dashboard: '/dashboard',
+  workspace: 'workspace',
+  user: '/user',
+  question: '/question',
+  test: '/test',
+  class: '/class',
   login: '/login',
 }

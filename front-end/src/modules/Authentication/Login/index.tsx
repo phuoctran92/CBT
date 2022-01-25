@@ -42,7 +42,7 @@ const Login = () => {
         // const dataToken = parseJwt(res.data.token)
         // localStorage.setItem(ACCESS_TOKEN, res.data.token);
         // setToken(res.data.token);
-        history.push(routes.dashboard);
+        history.push(routes.workspace);
       })
       .catch((e) => {
         dispatch({
