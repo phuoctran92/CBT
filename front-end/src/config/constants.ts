@@ -2,6 +2,9 @@ export const API = {
   AUTH_USER: {
     LOGIN: '/auth/login',
   },
+  QUESTION: {
+    DEFAULT: '/QUESTION'
+  }
 }
 export const isRefreshing = 'isRefreshing'
 export const ACCESS_TOKEN = 'ACCESS_TOKEN'

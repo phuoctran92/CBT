@@ -1,0 +1,1 @@
+export const SET_QUESTION_QUERY: string = 'SET_QUESTION_QUERY';

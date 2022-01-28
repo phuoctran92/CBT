@@ -4,7 +4,6 @@ import useStyles from "./styles";
 import clsx from "clsx";
 
 interface ButtonsProps {
-  btnType?: string;
   children?: string;
   onClick?: (e?: any) => void;
   type?: any;
@@ -16,17 +15,10 @@ interface ButtonsProps {
 
 const Buttons = memo((props: ButtonsProps) => {
   const classes = useStyles();
-  const { className, placementIcon, icon, btnType, children, onClick, ...rest } = props;
+  const { className, placementIcon, icon, children, onClick, ...rest } = props;
   return (
     <Button
-      className={clsx(
-        classes.root, className,
-        btnType === "large" ? classes.btnLarge : "",
-        btnType === "medium" ? classes.btnMedium : "",
-        btnType === "small" ? classes.btnSmall : "",
-        btnType === "icon" ? classes.btnIcon : "",
-        btnType === "iconSmall" ? classes.btnIconSmall : "",
-      )}
+      className={clsx(classes.root, className)}
       type="button"
       {...rest}
       onClick={onClick}

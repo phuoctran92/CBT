@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 import GoogleLogin from 'react-google-login';
 import useStyles from "./styles";
-import Inputs from "components/Inputs";
+import InputsLogin from "components/InputsLogin";
 import Images from "config/images";
 import { routes } from 'routers/routes';
 import * as authenticationServices from 'services/authentication';
@@ -37,11 +37,9 @@ const Login = () => {
     await authenticationServices
       .login(values)
       .then((data) => {
-        console.log(data);
-
         // const dataToken = parseJwt(res.data.token)
-        // localStorage.setItem(ACCESS_TOKEN, res.data.token);
-        // setToken(res.data.token);
+        localStorage.setItem(ACCESS_TOKEN, data.token);
+        setToken(data.token);
         history.push(routes.workspace);
       })
       .catch((e) => {
@@ -63,22 +61,11 @@ const Login = () => {
           <span>Log In</span>
           <span>Glad to see you!</span>
         </Grid>
-        {
-          errors?.userNameOrEmailAddress?.message || errors?.password?.message
-            ? <Box className={classes.icRabbitInvalid}>
-              <img src={Images.icRabbitInvalid} alt="icon" />
-            </Box>
-            :
-            <Box className={classes.icRabbit}>
-              <img src={Images.icRabbit} alt="icon" />
-              <img src={Images.icHi} alt="icon" />
-            </Box>
-        }
       </Grid>
       <Grid container className={classes.input}>
         <Box width="354px">
           <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-            <Inputs
+            <InputsLogin
               placeholder="Email"
               name="username"
               autoComplete="new-password"
@@ -93,7 +80,7 @@ const Login = () => {
               inputRef={register("email", { required: 'Email cannot be empty' })}
               errorMessage={errors?.userNameOrEmailAddress ? errors.userNameOrEmailAddress.message : null}
             />
-            <Inputs
+            <InputsLogin
               placeholder="Password"
               type="password"
               name="password"

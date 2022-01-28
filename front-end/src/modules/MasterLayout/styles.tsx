@@ -6,19 +6,19 @@ export default makeStyles((theme) =>
       display: 'flex',
       overflow: "hidden",
     },
-    menuleft:{
+    menuleft: {
 
     },
     layout: {
-      width:'-webkit-fill-available',
+      width: '-webkit-fill-available',
       overflow: 'auto',
       height: '100vh',
     },
     content: {
-      padding: '25px 35px 0px 40px',
+      padding: 20,
       minWidth: '800px'
     },
-    
+
   }),
 );
 

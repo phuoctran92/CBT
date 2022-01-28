@@ -1,16 +1,11 @@
-import { lazy, Suspense, memo } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
-import { routes } from './routes'
-import PrivateRoute from './PrivateRoute'
 import LoadingFullPage from 'components/LoadingFullPage'
-
-import { reducerType } from 'store/reducers';
-import { useSelector } from 'react-redux'
+import { lazy, memo, Suspense } from 'react'
+import { Redirect, Switch } from 'react-router-dom'
+import PrivateRoute from './PrivateRoute'
+import { routes } from './routes'
 
 const Authentication = lazy(() => import('modules/Authentication'));
-
 const MasterLayout = lazy(() => import('modules/MasterLayout'));
-const GuiUI = lazy(() => import('modules/GuiUI'));
 
 interface IRoutes {
   isLoggedIn: boolean

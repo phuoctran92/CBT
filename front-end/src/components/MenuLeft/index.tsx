@@ -1,17 +1,16 @@
-import { Fragment } from "react";
 import {
   Grid,
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
-  Avatar,
+  ListItemText
 } from "@material-ui/core";
-import useStyles from "./styles";
 import Images from "config/images";
+import { Fragment } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { routes } from 'routers/routes';
 import { navs } from './models';
-import { routes } from 'routers/routes'
+import useStyles from "./styles";
 
 const MenuLeft = () => {
   const classes = useStyles();

@@ -16,23 +16,23 @@ export default makeStyles(() =>
     },
     btnEdit: {
       "&:hover": {
-        backgroundColor: '#304D95',
+        backgroundColor: '#D1DEF590',
       },
       background: `url(${Images.icPencilLineWhite}) center no-repeat;`,
-      backgroundColor: theme.subColor,
-      backgroundSize: 20,
-      height: '24px',
-      width: '24px',
+      backgroundColor: '#D1DEF5',
+      backgroundSize: 25,
+      height: '30px',
+      width: '30px',
     },
     btnDelete: {
       "&:hover": {
-        backgroundColor: '#304D95',
+        backgroundColor: '#F9D0D990',
       },
-      backgroundColor: theme.subColor,
+      backgroundColor: '#F9D0D9',
       background: `url(${Images.icDelete}) center no-repeat;`,
-      backgroundSize: 20,
-      height: '24px',
-      width: '24px',
+      backgroundSize: 25,
+      height: '30px',
+      width: '30px',
     },
     btnView: {
       "&:hover": {
@@ -40,9 +40,9 @@ export default makeStyles(() =>
       },
       backgroundColor: theme.subColor,
       background: `url(${Images.icViewBtn}) center no-repeat;`,
-      backgroundSize: 20,
-      height: '24px',
-      width: '24px',
+      backgroundSize: 25,
+      height: '30px',
+      width: '30px',
     },
     btnShare: {
       "&:hover": {
@@ -50,9 +50,9 @@ export default makeStyles(() =>
       },
       backgroundColor: theme.subColor,
       background: `url(${Images.icShare}) center no-repeat;`,
-      backgroundSize: 20,
-      height: '24px',
-      width: '24px',
+      backgroundSize: 25,
+      height: '30px',
+      width: '30px',
     },
   })
 );

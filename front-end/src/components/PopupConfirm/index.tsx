@@ -1,8 +1,9 @@
-import { memo } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogContentText, Grid, Button, Box } from '@material-ui/core';
-import useStyles from './styles';
+import { Box, Dialog, DialogContent, DialogContentText, DialogTitle, Grid } from '@material-ui/core';
 import Buttons from 'components/Buttons';
+import ButtonsOutline from 'components/ButtonsOutline';
 import Images from 'config/images';
+import { memo } from 'react';
+import useStyles from './styles';
 
 //popupDeleteProps
 interface popupConfirmProps {
@@ -16,7 +17,7 @@ interface popupConfirmProps {
 }
 
 const PopupConfirm = memo((props: popupConfirmProps) => {
-  const { onClickSuccess, onClickCancel, title, text, open, className, type } = props;
+  const { onClickSuccess, onClickCancel, title, text, open, className } = props;
   const classes = useStyles();
 
   const handleSuccess = () => {
@@ -44,15 +45,14 @@ const PopupConfirm = memo((props: popupConfirmProps) => {
           </DialogContent>
         </Grid>
         <Grid container justify="center" alignItems="center" className={classes.containerButton}>
-          <Buttons onClick={handleClose} btnType="medium"  >
+          <Buttons onClick={handleClose} >
             Cancel
           </Buttons>
           <Box onClick={handleSuccess} width="208px" ml="7px">
-            <Button variant="outlined" color="secondary" size="large">
+            <ButtonsOutline >
               Yes
-            </Button>
+            </ButtonsOutline>
           </Box>
-
         </Grid>
       </Grid>
     </Dialog>

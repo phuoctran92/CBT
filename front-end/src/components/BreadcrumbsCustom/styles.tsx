@@ -1,27 +1,46 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import theme from 'config/theme';
 
 export default makeStyles(() =>
   createStyles({
+    container: {
+      display: 'flex',
+      flexDirection: 'row',
+      background: '#FFFFFF',
+      borderRadius: 5,
+      alignItems: 'center',
+      height: 50,
+      '& .MuiDivider-flexItem': {
+        margin: '12px 10px'
+      }
+    },
+    name: {
+      fontSize: 20,
+      fontWeight: 700,
+      marginLeft: 23
+    },
     containerBreadcrumbs: {
+      marginLeft: 10,
       '& > ol': {
-        fontSize: 18,
+        fontSize: 14,
         fontWeight: 700,
-        color: '#304D95',
+        color: '#333333',
         textTransform: "capitalize",
         '& > .MuiBreadcrumbs-separator': {
           margin: "0px 12px",
         },
+        '& > li:first-child': {
+          '& > a > button': {
+            display: 'none'
+          }
+        },
         '& > li': {
-          fontFamily: 'Arial Rounded MT !important',
           letterSpacing: 1,
           '& > a': {
-            fontSize: 18,
+            fontSize: 14,
             fontWeight: 700,
-            color: theme.subColor,
+            color: '#333333',
             textDecoration: 'none',
             '& > span': {
-              fontFamily: 'Arial Rounded MT !important',
               letterSpacing: 1,
               opacity: 0.5,
             },
@@ -32,25 +51,22 @@ export default makeStyles(() =>
             },
           },
           '& > p': {
-            fontSize: 18,
+            fontSize: 14,
             fontWeight: 700,
-            color: theme.subColor,
+            color: '#333333',
             textDecoration: 'none',
           },
         },
       },
     },
-    // breadcrumbs: {
-    //   "& > ol > li > p > div":{
-    //     display: 'flex',
-    //     "& > span": {
-    //       opacity: 0.5,
-    //     },
-    //     "& > img": {
-    //       margin: "0px 12px",
-    //     },
-    //   }
-    // }
+    link1: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: '#333333',
+      textDecoration: 'none',
+      letterSpacing: 1,
+      opacity: 0.5,
+    }
   })
 );
 

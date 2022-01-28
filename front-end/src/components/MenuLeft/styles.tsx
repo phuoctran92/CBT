@@ -1,16 +1,13 @@
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import theme from "config/theme";
 
 export default makeStyles(() =>
   createStyles({
     container: {
       height: "100vh",
-      //backgroundColor: theme.mainColor,
+      backgroundColor: '#FFFFFF',
     },
     toolbar: {
       width: 240,
-      //backgroundColor: "#FFFFFF",
-      //borderTopRightRadius: 60,
     },
     logo: {
       backgroundColor: "#FFFFFF",

@@ -5,7 +5,7 @@ import useStyles from './styles';
 import clsx from 'clsx';
 
 interface InputSearchProps {
-  type?:string,
+  type?: string,
   title?: string,
   placeholder?: string,
   name?: string,
@@ -18,9 +18,9 @@ interface InputSearchProps {
   autoComplete?: string,
   search?: boolean,
 }
-const InputSearch = memo( React.forwardRef((props: InputSearchProps, ref) => {
+const InputSearch = memo(React.forwardRef((props: InputSearchProps, ref) => {
   const classes = useStyles();
-  const { 
+  const {
     type,
     placeholder,
     name,
@@ -34,8 +34,8 @@ const InputSearch = memo( React.forwardRef((props: InputSearchProps, ref) => {
     ...rest
   } = props;
 
-  const { ref: refInput, ...inputProps } = inputRef || {ref: null}
-  
+  const { ref: refInput, ...inputProps } = inputRef || { ref: null }
+
   return (
     <FormControl fullWidth classes={{ root: classes.container }}>
       <TextField
@@ -54,10 +54,10 @@ const InputSearch = memo( React.forwardRef((props: InputSearchProps, ref) => {
             input: clsx(classes.inputTextfield),
           },
           autoComplete,
-          endAdornment: (
-            search && <InputAdornment position="end">
-                <img src={Images.icSearchGray} alt="eye-close" />
-              </InputAdornment>
+          startAdornment: (
+            search && <InputAdornment position="start">
+              <img src={Images.icSearchGray} alt="eye-close" />
+            </InputAdornment>
           )
         }}
         {...inputProps}

@@ -20,9 +20,9 @@ const PopupSuccess = memo((props: PopupSuccessProps) => {
   const messageSuccess = useSelector((state: reducerType) => state.global.messageSuccess)
   const classes = useStyles();
   const dispatch = useDispatch();
-  
+
   const handleClose = () => {
-    if(onClickCancel){
+    if (onClickCancel) {
       onClickCancel();
       return;
     }
@@ -34,18 +34,18 @@ const PopupSuccess = memo((props: PopupSuccessProps) => {
 
   return (
     <Dialog
-      open={!!messageSuccess || !!messageLocal} 
-      onBackdropClick={ handleClose }
+      open={!!messageSuccess || !!messageLocal}
+      onBackdropClick={handleClose}
       className={classes.container}
     >
       <Grid className={classes.containerDialog}>
         <Grid container justify="center" alignItems="center" className={classes.containerContent}>
           <img alt="icon" src={Images.icSuccess} />
-          <p>{ messageSuccess || messageLocal}</p>
+          <p>{messageSuccess || messageLocal}</p>
         </Grid>
         <Grid className={classes.containerButton}>
           <div>
-            <Buttons btnType="large" onClick={handleClose}>OK</Buttons>
+            <Buttons onClick={handleClose}>OK</Buttons>
           </div>
         </Grid>
       </Grid>

@@ -1,13 +1,13 @@
 // import { lazy } from 'react';
 
-import useStyles from './styles';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { routes } from 'routers/routes'
 import MenuLeft from 'components/MenuLeft';
-
+import { Redirect, Switch } from 'react-router-dom';
+import { routes } from 'routers/routes';
 import PermissionRoute from './PermissionRoute';
-import { reducerType } from 'store/reducers';
-import { useSelector } from 'react-redux'
+import useStyles from './styles';
+
+import QuestionList from 'modules/Question/List'
+import CreateQuestion from 'modules/Question/Create';
 
 function MasterLayout() {
 
@@ -19,7 +19,10 @@ function MasterLayout() {
       <div className={classes.layout}>
         <main className={classes.content}>
           <Switch>
-            <Redirect exact from={routes.default} to={routes.workspace} />
+            <Redirect exact from={routes.default} to={routes.question.default} />
+            <Redirect exact from={routes.question.create.default} to={routes.question.create.selectOne} />
+            <PermissionRoute exact isPermission={true} component={QuestionList} urlRedirect={routes.login} path={routes.question.default} />
+            <PermissionRoute exact={false} isPermission={true} component={CreateQuestion} urlRedirect={routes.login} path={routes.question.create.default} />
           </Switch>
         </main>
       </div>

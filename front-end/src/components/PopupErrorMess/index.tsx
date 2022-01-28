@@ -28,7 +28,7 @@ const PopupErrorMess = memo((props: popupDeleteProps) => {
       type: actionGlobal.SET_MESSAGE_ERROR,
       payload: ''
     })
-    dispatch({ type: actionGlobal.SET_MESSAGE_SUB_ERROR,  payload: '' })
+    dispatch({ type: actionGlobal.SET_MESSAGE_SUB_ERROR, payload: '' })
   };
   return (
     <Dialog
@@ -41,12 +41,12 @@ const PopupErrorMess = memo((props: popupDeleteProps) => {
           <img src={images.icError} alt="" />
           <DialogTitle className={classes.titleMess}>{messageError || messageLocal}</DialogTitle>
           {
-            messageSubError && (<p className={classes.subTitle}>{ messageSubError }</p>)
+            messageSubError && (<p className={classes.subTitle}>{messageSubError}</p>)
           }
         </Grid>
         <Grid container justify="center" alignItems="center" className={classes.containerButton}>
           <Box width="33%" >
-            <Buttons btnType="medium" onClick={handleClose}>
+            <Buttons onClick={handleClose}>
               Close
             </Buttons>
           </Box>

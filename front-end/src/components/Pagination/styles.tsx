@@ -3,20 +3,18 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 export default makeStyles(() =>
   createStyles({
     root: {
-      margin: '78px 0 78px 0',
+      margin: '30px 0',
       display: 'flex',
       justifyContent: 'space-between',
-      width: '100%'
+      width: '100%',
+      overflowX: 'hidden'
     },
     arialFont: {
-      '& .MuiIconButton-label': {
-        fontFamily: 'Arial Rounded MT !important'
-      },
       border: '1px solid #304D95',
       fontWeight: 700,
-      fontSize: 18,
-      width: 30,
-      height: 30,
+      fontSize: 14,
+      width: 24,
+      height: 24,
       margin: '0px 4px',
       borderRadius: '5px',
       color: '#304D95',
@@ -36,8 +34,8 @@ export default makeStyles(() =>
       margin: 0,
       display: 'flex',
       justifyContent: 'center',
-      width: 'calc(100% - 130px)',
-      paddingRight: '130px',
+      width: 'calc(100% - 134px)',
+      paddingLeft: '130px',
     },
     icon: {
       '& > span > img': {
@@ -52,15 +50,17 @@ export default makeStyles(() =>
       height: 26,
     },
     select: {
-      background: '#304D95',
+      background: '#FFFFFF',
       borderRadius: 5,
+      marginRight: 20,
       minWidth: 130,
       maxWidth: 130,
       '& .MuiSelect-selectMenu': {
         paddingLeft: 16,
-        color: '#FFFFFF',
+        color: '#333333',
         fontSize: 14,
         borderRadius: 5,
+        border: '1px solid #BDBDBD'
       },
       '& .MuiSelect-icon': {
         top: 7,
