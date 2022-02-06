@@ -1,9 +1,12 @@
 import { Grid } from "@material-ui/core"
 import CategoriesSelect from "components/CategoriesSelect";
 import Inputs from "components/Inputs";
+import Buttons from "components/Buttons";
 import InputsRichtext from "components/InputsRichtext";
 import { memo } from "react"
+import SelectOneAnswerForm from "./SelectOneAnswerForm";
 import useStyles from "./styles"
+import Images from 'config/images'
 
 const categoryOptions = [
   { value: "ielts", label: "IELTS" },
@@ -39,7 +42,24 @@ const SelectOne = memo(() => {
         />
       </Grid>
       <Grid item md={12} >
-
+        <SelectOneAnswerForm />
+      </Grid>
+      <Grid item md={12} className={classes.groupBtn}>
+        <Buttons
+          children="Preview"
+          icon={Images.CBTicEyeWhite}
+          placementIcon={true}
+        />
+        <Buttons
+          children="Save As Draft"
+          icon={Images.CBTicFileArrowDown}
+          placementIcon={true}
+        />
+        <Buttons
+          children="Publish"
+          icon={Images.CBTicPlusCircleWhite}
+          placementIcon={true}
+        />
       </Grid>
     </Grid>
   )

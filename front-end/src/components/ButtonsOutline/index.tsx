@@ -8,7 +8,7 @@ interface ButtonsOutlineProps {
   onClick?: (e?: any) => void;
   type?: any;
   icon?: any;
-  placementIcon?: any;
+  placementIcon?: boolean;
   disabled?: boolean;
   className?: any
 }

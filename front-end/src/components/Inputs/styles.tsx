@@ -4,7 +4,7 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 export default makeStyles(() =>
   createStyles({
     container: {
-      marginBottom: 10,
+      //marginBottom: 10,
     },
     textTitle: {
       lineHeight: '17px',
@@ -26,7 +26,7 @@ export default makeStyles(() =>
     rootTextField: {
       width: '100%',
       '& > div': {
-        border: '1px solid #333333',
+        border: '1px solid #BDBDBD',
         background: '#FAFAFA',
         '& > .MuiInputBase-input:-webkit-autofill': {
           '-webkit-box-shadow': '0 0 0 30px white inset !important',

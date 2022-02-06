@@ -9,6 +9,9 @@ import useStyles from './styles';
 import QuestionList from 'modules/Question/List'
 import CreateQuestion from 'modules/Question/Create';
 
+import TestList from 'modules/Test/List';
+import CreateTest from 'modules/Test/Create';
+
 function MasterLayout() {
 
   const classes = useStyles();
@@ -23,6 +26,9 @@ function MasterLayout() {
             <Redirect exact from={routes.question.create.default} to={routes.question.create.selectOne} />
             <PermissionRoute exact isPermission={true} component={QuestionList} urlRedirect={routes.login} path={routes.question.default} />
             <PermissionRoute exact={false} isPermission={true} component={CreateQuestion} urlRedirect={routes.login} path={routes.question.create.default} />
+
+            <PermissionRoute exact isPermission={true} component={TestList} urlRedirect={routes.login} path={routes.test.default} />
+            <PermissionRoute exact={false} isPermission={true} component={CreateTest} urlRedirect={routes.login} path={routes.test.create} />
           </Switch>
         </main>
       </div>

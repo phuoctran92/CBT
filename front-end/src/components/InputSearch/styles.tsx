@@ -13,7 +13,7 @@ export default makeStyles(() =>
       minWidth: 300,
       '& .MuiInputAdornment-positionStart': {
         marginRight: 0,
-        marginLeft: 5
+        marginLeft: 10
       },
       '& > div': {
         borderRadius: 44,

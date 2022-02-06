@@ -49,7 +49,7 @@ export const customSelectStyle = {
     minHeight: 40,
     borderRadius: 0,
     background: '#FAFAFA',
-    border: "1px solid #333333",
+    border: "1px solid #BDBDBD",
     '&:hover': {
       borderColor: "#333333",
     }

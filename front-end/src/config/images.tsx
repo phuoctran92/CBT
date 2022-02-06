@@ -32,11 +32,37 @@ import icError from 'asset/img/ic-error.svg';
 import icSuccess from 'asset/img/ic-success.svg';
 import icCircleGreen from 'asset/img/ic-check-circle-green.svg';
 import icCircleYellow from 'asset/img/ic-check-circle-yellow.svg';
+import icCircleRed from 'asset/img/ic-check-circle-red.svg';
+import icCircleBlue from 'asset/img/ic-check-circle-blue.svg';
 import icRabbitInvalid from 'asset/img/ic-rabbit-invalid.svg';
 import icEmail from 'asset/img/ic-email.svg'
 import icPass from 'asset/img/ic-password.svg';
+import CBTicPlusCircleGreen from 'asset/img/cbt-ic-pluscircle-green.svg'
+import CBTicEyeWhite from 'asset/img/cbt-ic-eye-white.svg';
+import CBTicFileArrowDown from 'asset/img/cbt-ic-file-arrow-down.svg';
+import CBTicPlusCircleWhite from 'asset/img/cbt-ic-pluscircle-white.svg'
+import CBTicXred from 'asset/img/cbt-ic-Xred.svg';
+import CBTicCheckWhite from 'asset/img/cbt-ic-check-white.svg';
+import CBTicStackRed from 'asset/img/cbt-ic-stack-red.svg';
+import CBTicArrowLeft from 'asset/img/cbt-ic-arrow-left.svg';
+import CBTicArrowRight from 'asset/img/cbt-ic-arrow-right.svg';
+import CBTicRefresh from 'asset/img/cbt-ic-refresh-white.svg';
+import CBTicCalendar from 'asset/img/cbt-ic-calendar.svg'
 
 const images = {
+  CBTicCalendar,
+  CBTicRefresh,
+  CBTicArrowLeft,
+  CBTicArrowRight,
+  CBTicStackRed,
+  icCircleBlue,
+  icCircleRed,
+  CBTicCheckWhite,
+  CBTicXred,
+  CBTicFileArrowDown,
+  CBTicPlusCircleWhite,
+  CBTicEyeWhite,
+  CBTicPlusCircleGreen,
   icPass,
   icEmail,
   icRabbitInvalid,

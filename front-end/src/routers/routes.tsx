@@ -48,12 +48,12 @@ export const routes: Routes = {
   test: {
     default: '/test',
     create: '/test/create',
-    edit: '/test/edit/:testId'
+    edit: '/test/:testId'
   },
   class: {
     default: '/class',
     create: '/class/create',
-    edit: '/class/edit/:classId'
+    edit: '/class/:classId'
   },
   login: '/login',
 }
