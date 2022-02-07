@@ -29,6 +29,7 @@ const SelectOneAnswerForm = memo(() => {
       isCorrect: false
     },
   ]
+
   const [answerList, setAnswerList] = useState<SelectOneAnswer[]>(initialQuestion)
 
   return (

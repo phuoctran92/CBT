@@ -1,10 +1,11 @@
-import { Grid, FormControlLabel, Checkbox } from '@material-ui/core';
-import Buttons from 'components/Buttons';
+import { Checkbox, FormControlLabel, Grid } from '@material-ui/core';
 import ButtonsOutline from 'components/ButtonsOutline';
-import { memo, useState } from 'react';
-import useStyles from './styles';
 import Images from 'config/images';
+import { memo, useState } from 'react';
+import ANewQuestion from '../ANewQuestion';
+import Description from '../Description';
 import SelectContentPopup from '../SelectContentPopup';
+import useStyles from './styles';
 
 interface PageProps {
   pageNumber: number
@@ -31,7 +32,8 @@ const Page = memo((props: PageProps) => {
         label="Shuffle Question"
       />
       <Grid item md={12}>
-
+        <Description />
+        <ANewQuestion />
       </Grid>
       <Grid item container justify="flex-end" md={12} >
         <ButtonsOutline

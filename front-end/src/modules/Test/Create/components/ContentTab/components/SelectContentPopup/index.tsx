@@ -36,6 +36,7 @@ const SelectContentPopup = memo((props: SelectContentPopupProps) => {
     <Dialog
       open={open}
       onClose={() => onClose()}
+      className={classes.container}
     >
       <List
         component="nav"
@@ -67,7 +68,7 @@ const SelectContentPopup = memo((props: SelectContentPopupProps) => {
           {openNested ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse in={openNested} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
+          <List component="div" disablePadding className={classes.nestedList}>
             <ListItem button onClick={handleClickItem}>
               <ListItemIcon>
                 <CropDinOutlinedIcon />

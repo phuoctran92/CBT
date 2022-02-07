@@ -10,7 +10,7 @@ interface DatePickerProps {
 }
 
 const DateTimePickerCustom = memo(React.forwardRef((props: DatePickerProps, ref) => {
-  const { label, name, } = props
+  const { label, } = props
   const [date, setDate] = useState<Date | null>(new Date());
   const classes = useStyles()
 
