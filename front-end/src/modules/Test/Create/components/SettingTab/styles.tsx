@@ -16,8 +16,8 @@ export default makeStyles(() =>
     generalContent: {
       display: 'flex',
       flexDirection: 'column',
+      marginLeft: 20,
       '& >div': {
-        paddingLeft: 20,
         marginBottom: 20
       }
     },

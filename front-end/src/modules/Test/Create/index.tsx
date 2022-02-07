@@ -11,6 +11,7 @@ import Images from "config/images";
 import PropTypes from 'prop-types';
 import { memo, useState } from "react";
 import SettingTab from "./components/SettingTab";
+import ContentTab from "./components/ContentTab";
 import useStyles, { ColorlibConnector, useColorlibStepIconStyles } from "./styles";
 
 const ColorlibStepIcon = (props) => {
@@ -19,8 +20,8 @@ const ColorlibStepIcon = (props) => {
 
   const icons = {
     1: <SettingsIcon />,
-    2: <GroupAddIcon />,
-    3: <VideoLabelIcon />,
+    2: <VideoLabelIcon />,
+    3: <GroupAddIcon />,
   };
 
   return (
@@ -52,7 +53,7 @@ ColorlibStepIcon.propTypes = {
 
 
 const getSteps = () => {
-  return ['Setting', 'Add people', 'Create content'];
+  return ['Setting', 'Create content', 'Add people'];
 }
 
 const getStepContent = (step) => {
@@ -60,9 +61,9 @@ const getStepContent = (step) => {
     case 0:
       return <SettingTab />;
     case 1:
-      return 'What is an ad group anyways?';
+      return <ContentTab />;
     case 2:
-      return 'This is the bit I really care about!';
+      return 'What is an ad group anyways?';
     default:
       return 'Unknown step';
   }

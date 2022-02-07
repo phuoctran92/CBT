@@ -48,8 +48,10 @@ import CBTicArrowLeft from 'asset/img/cbt-ic-arrow-left.svg';
 import CBTicArrowRight from 'asset/img/cbt-ic-arrow-right.svg';
 import CBTicRefresh from 'asset/img/cbt-ic-refresh-white.svg';
 import CBTicCalendar from 'asset/img/cbt-ic-calendar.svg'
+import CBTicPluscircleBlue from 'asset/img/cbt-ic-pluscircle-blue.svg';
 
 const images = {
+  CBTicPluscircleBlue,
   CBTicCalendar,
   CBTicRefresh,
   CBTicArrowLeft,

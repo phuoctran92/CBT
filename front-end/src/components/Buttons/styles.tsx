@@ -6,7 +6,7 @@ export default makeStyles(() =>
       maxHeight: 35,
       background: '#0E32AE',
       '& .MuiButton-label': {
-        marginLeft: 5,
+        //marginLeft: 5,
         fontSize: 16,
         color: "#FFFFFF",
         fontWeight: 500,
@@ -21,11 +21,10 @@ export default makeStyles(() =>
       "& > span": {
         "& > .MuiButton-startIcon": {
           marginRight: 5,
-          marginLeft: 5,
         },
         "& > .MuiButton-endIcon": {
           marginLeft: 5,
-          marginRight: 5,
+          //marginRight: 5,
         },
       },
     },

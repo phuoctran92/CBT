@@ -10,7 +10,7 @@ export default makeStyles(() =>
       border: '1px solid #E1000A',
       boxShadow: "unset!important",
       '& .MuiButton-label': {
-        marginLeft: 5,
+        //marginLeft: 5,
         fontSize: 16,
         color: "#E1000A",
         fontWeight: 500,
@@ -22,11 +22,10 @@ export default makeStyles(() =>
       "& > span": {
         "& > .MuiButton-startIcon": {
           marginRight: 5,
-          marginLeft: 5,
         },
         "& > .MuiButton-endIcon": {
           marginLeft: 5,
-          marginRight: 5,
+          //marginRight: 5,
         },
       },
     },

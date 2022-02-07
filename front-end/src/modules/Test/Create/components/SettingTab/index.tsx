@@ -1,19 +1,14 @@
 import {
-  FormControl, FormLabel, FormGroup, FormControlLabel,
-  Checkbox, Typography,
-  Accordion, AccordionDetails, AccordionSummary
-} from '@material-ui/core'
+  Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Typography
+} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DateTimePickerCustom from 'components/DateTimePickerCustom';
 import Inputs from 'components/Inputs';
 import InputsRichtext from 'components/InputsRichtext';
 import { memo, useState } from 'react';
 import Select from 'react-select';
+import { AfterSubmitTestOptionDefault, AfterTestClosedOptionDefault, WhenDoingTestOptionDefault } from './models';
 import useStyles, { customSelectStyle } from './styles';
-import {
-  WhenDoingTestOption, AfterSubmitTestOption, AfterTestClosedOption,
-  WhenDoingTestOptionDefault, AfterSubmitTestOptionDefault, AfterTestClosedOptionDefault
-} from './models'
 
 const scoreMethodOptions = [
   { value: "highestScore", label: 'Highest Score' },
