@@ -5,36 +5,37 @@ import {
   ListItemText
 } from "@material-ui/core";
 import { Fragment } from "react";
-import { Link, useHistory } from "react-router-dom";
 import { navs } from './models';
 import useStyles from "./styles";
 
-const QuestionTypeSelect = () => {
+interface QuestionTypeSelectProps {
+  onChange: Function,
+  type: number
+}
+
+const QuestionTypeSelect = (props: QuestionTypeSelectProps) => {
+  const { onChange, type } = props
   const classes = useStyles();
-  const history = useHistory();
-  const pathName = history.location.pathname;
 
   const getMenus = () => {
     let _menuItems = [...navs];
     return _menuItems;
   }
 
-  const checkActiveMenu = (item) => {
-    return pathName.includes(`${item.path}`)
+  const handleChangeType = (i: number) => () => {
+    onChange(i)
   }
-
   return (
     <div className={classes.container}>
       <p>Question Type</p>
       <div className={classes.list}>
         <List>
           {getMenus().map((route, i) => (
-            <Fragment key={`router-${i}`}>
+            <Fragment key={i}>
               <ListItem
                 className={classes.listWrap}
-                component={Link}
-                to={route.path}
-                selected={checkActiveMenu(route)}
+                selected={type === i}
+                onClick={handleChangeType(i)}
               >
                 <ListItemIcon>{route.icon}</ListItemIcon>
                 <ListItemText primary={route.title} />

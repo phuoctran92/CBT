@@ -4,15 +4,7 @@ interface Routes {
   user: string;
   question: {
     default: string,
-    create: {
-      default: string,
-      selectOne: string,
-      selectMany: string,
-      matching: string,
-      dropdown: string,
-      fillGaps: string,
-      essay: string,
-    },
+    create: string,
     edit: string
   };
   test: {
@@ -34,15 +26,7 @@ export const routes: Routes = {
   user: '/user',
   question: {
     default: '/question',
-    create: {
-      default: '/question/create',
-      selectOne: '/question/create/select-one',
-      selectMany: '/question/create/select-many',
-      matching: '/question/create/matching',
-      dropdown: '/question/create/dropdown-select',
-      fillGaps: '/question/create/fill-in-the-gaps',
-      essay: '/question/create/essay',
-    },
+    create: '/question/create',
     edit: '/question/edit/:questionId'
   },
   test: {

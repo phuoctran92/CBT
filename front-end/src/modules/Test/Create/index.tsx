@@ -10,8 +10,8 @@ import Buttons from "components/Buttons";
 import Images from "config/images";
 import PropTypes from 'prop-types';
 import { memo, useState } from "react";
-import SettingTab from "./components/SettingTab";
-import ContentTab from "./components/ContentTab";
+import SettingTab from "./SettingTab";
+import ContentTab from "./ContentTab";
 import useStyles, { ColorlibConnector, useColorlibStepIconStyles } from "./styles";
 
 const ColorlibStepIcon = (props) => {

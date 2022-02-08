@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form"
-import { Grid, Box, Button, IconButton } from "@material-ui/core";
+import { Grid, Box, Button, IconButton, Snackbar, Fade } from "@material-ui/core";
+import MuiAlert from '@material-ui/lab/Alert';
 import { Link, useHistory } from "react-router-dom";
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
@@ -15,11 +17,15 @@ import { setToken } from 'services/configApi';
 
 // import { FormLoginSocial } from 'models/authentication';
 // import { TypeLoginSocial } from './models';
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const Login = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
+  const [open, setOpen] = useState(false);
 
   const { handleSubmit, register, formState: { errors } } = useForm();
 
@@ -42,19 +48,35 @@ const Login = () => {
         setToken(data.token);
         history.push(routes.workspace);
       })
-      .catch((e) => {
-        dispatch({
-          type: actionGlobal.SET_MESSAGE_ERROR,
-          payload: e.message
-        })
+      .catch(() => {
+        setOpen(true)
+
       })
       .finally(() => {
         dispatch({ type: actionGlobal.SET_LOADING_PAGE, payload: false })
       })
   }
 
+  const renderAlert = () => {
+    return (
+      <div className={classes.wrapperAlert}>
+        <Snackbar
+          open={open}
+          autoHideDuration={60000000}
+          onClose={() => setOpen(false)}
+          TransitionComponent={Fade}
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        >
+          <Alert onClose={() => setOpen(false)} severity="error" className={classes.customMess}>
+            Email and/or password is incorrect
+          </Alert>
+        </Snackbar>
+      </div>
+    )
+  }
   return (
     <Grid container component="main" className={classes.root}>
+      {open && renderAlert()}
       <img src={Images.icLogo} alt="" className={classes.icLogo} />
       <Grid container className={classes.rabbit}>
         <Grid className={classes.title}>

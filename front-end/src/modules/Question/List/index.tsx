@@ -125,7 +125,7 @@ const QuestionList = memo(() => {
   }
 
   const handleCreateQuestion = () => {
-    history.push(routes.question.create.default)
+    history.push(routes.question.create)
   }
   const isSelected = (id: string) => selected.indexOf(id) !== -1;
 

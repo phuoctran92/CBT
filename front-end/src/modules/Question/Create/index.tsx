@@ -2,23 +2,44 @@ import {
   Avatar, Grid
 } from "@material-ui/core"
 import BreadcrumbsCustom from "components/BreadcrumbsCustom"
+import Buttons from "components/Buttons"
 import QuestionTypeSelect from "components/QuestionTypeSelect"
 import Images from "config/images"
-import { memo } from "react"
-import { Switch } from "react-router-dom"
-import { routes } from "routers/routes"
+import { memo, useState } from "react"
 import Dropdown from './components/Dropdown'
 import Essay from './components/Essay'
 import FillInGaps from './components/FillInGaps'
 import Matching from './components/Matching'
 import SelectMany from './components/SelectMany'
 import SelectOne from './components/SelectOne'
-import PermissionRoute from "./PermissionRoute"
 import useStyles from "./styles"
 
+const renderQuestionForm = (type: number) => {
+  switch (type) {
+    case 0:
+      return <SelectOne />;
+    case 1:
+      return <SelectMany />;
+    case 2:
+      return <Matching />;
+    case 3:
+      return <Dropdown />;
+    case 4:
+      return <FillInGaps />;
+    case 5:
+      return <Essay />;
+    default:
+      return null;
+  }
+}
 
 const CreateQuestion = memo(() => {
   const classes = useStyles()
+  const [type, setType] = useState(0)
+
+  const handleChangeType = (e) => {
+    setType(e)
+  }
 
   return (
     <Grid container className={classes.container}>
@@ -34,15 +55,32 @@ const CreateQuestion = memo(() => {
           <Avatar />
         </div>
       </Grid>
-      <QuestionTypeSelect />
-      <Switch>
-        <PermissionRoute exact isPermission={true} component={SelectOne} urlRedirect={routes.login} path={routes.question.create.selectOne} />
-        <PermissionRoute exact isPermission={true} component={SelectMany} urlRedirect={routes.login} path={routes.question.create.selectMany} />
-        <PermissionRoute exact isPermission={true} component={Matching} urlRedirect={routes.login} path={routes.question.create.matching} />
-        <PermissionRoute exact isPermission={true} component={Dropdown} urlRedirect={routes.login} path={routes.question.create.dropdown} />
-        <PermissionRoute exact isPermission={true} component={FillInGaps} urlRedirect={routes.login} path={routes.question.create.fillGaps} />
-        <PermissionRoute exact isPermission={true} component={Essay} urlRedirect={routes.login} path={routes.question.create.essay} />
-      </Switch>
+      <QuestionTypeSelect
+        type={type}
+        onChange={handleChangeType}
+      />
+      <Grid container className={classes.content}>
+        {
+          renderQuestionForm(type)
+        }
+        <Grid item md={12} className={classes.groupBtn}>
+          <Buttons
+            children="Preview"
+            icon={Images.CBTicEyeWhite}
+            placementIcon={true}
+          />
+          <Buttons
+            children="Save As Draft"
+            icon={Images.CBTicFileArrowDown}
+            placementIcon={true}
+          />
+          <Buttons
+            children="Publish"
+            icon={Images.CBTicPlusCircleWhite}
+            placementIcon={true}
+          />
+        </Grid>
+      </Grid>
     </Grid>
   )
 });

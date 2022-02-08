@@ -38,6 +38,18 @@ export default makeStyles(() =>
         fontSize: 16,
         margin: 0
       }
-
+    },
+    groupBtn: {
+      marginTop: 20,
+      display: 'flex',
+      justifyContent: 'flex-end',
+      '& > button': {
+        marginLeft: 10
+      }
+    },
+    content: {
+      background: '#FFFFFF',
+      padding: 20,
+      marginTop: 20
     }
   }))

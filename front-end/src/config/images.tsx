@@ -50,8 +50,20 @@ import CBTicRefresh from 'asset/img/cbt-ic-refresh-white.svg';
 import CBTicCalendar from 'asset/img/cbt-ic-calendar.svg'
 import CBTicPluscircleBlue from 'asset/img/cbt-ic-pluscircle-blue.svg';
 import CBTicDescription from 'asset/img/cbt-ic-description.svg';
+import CBTicRecordBlack from 'asset/img/cbt-ic-record-black.svg';
+import CBTicCheckBlack from 'asset/img/cbt-ic-check-black.svg';
+import CBTicShuffleBlack from 'asset/img/cbt-ic-shuffle-black.svg';
+import CBTicTableBlack from 'asset/img/cbt-ic-table-black.svg';
+import CBTicRowsBlack from 'asset/img/cbt-ic-rows-black.svg';
+import CBTicPencilBlack from 'asset/img/cbt-ic-pencil-black.svg';
 
 const images = {
+  CBTicRecordBlack,
+  CBTicCheckBlack,
+  CBTicShuffleBlack,
+  CBTicTableBlack,
+  CBTicRowsBlack,
+  CBTicPencilBlack,
   CBTicDescription,
   CBTicPluscircleBlue,
   CBTicCalendar,

@@ -23,12 +23,11 @@ function MasterLayout() {
         <main className={classes.content}>
           <Switch>
             <Redirect exact from={routes.default} to={routes.question.default} />
-            <Redirect exact from={routes.question.create.default} to={routes.question.create.selectOne} />
             <PermissionRoute exact isPermission={true} component={QuestionList} urlRedirect={routes.login} path={routes.question.default} />
-            <PermissionRoute exact={false} isPermission={true} component={CreateQuestion} urlRedirect={routes.login} path={routes.question.create.default} />
+            <PermissionRoute exact isPermission={true} component={CreateQuestion} urlRedirect={routes.login} path={routes.question.create} />
 
             <PermissionRoute exact isPermission={true} component={TestList} urlRedirect={routes.login} path={routes.test.default} />
-            <PermissionRoute exact={false} isPermission={true} component={CreateTest} urlRedirect={routes.login} path={routes.test.create} />
+            <PermissionRoute exact isPermission={true} component={CreateTest} urlRedirect={routes.login} path={routes.test.create} />
           </Switch>
         </main>
       </div>

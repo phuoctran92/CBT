@@ -1,11 +1,10 @@
 import { Grid } from '@material-ui/core';
 import { memo } from 'react';
 import useStyles from './styles';
-import Page from './components/Page';
+import Page from './Page';
 
 const ContentTab = memo(() => {
   const classes = useStyles();
-
 
   return (
     <Grid container direction='row' spacing={2} className={classes.container}>

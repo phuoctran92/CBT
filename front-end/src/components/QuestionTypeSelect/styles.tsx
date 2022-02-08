@@ -31,6 +31,7 @@ export default makeStyles(() =>
       },
     },
     listWrap: {
+      cursor: 'pointer',
       height: 43,
       paddingLeft: 10,
       borderRadius: 5,

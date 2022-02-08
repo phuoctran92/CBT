@@ -12,6 +12,20 @@ export default makeStyles(() =>
     container: {
       display: "flex",
     },
+    wrapperAlert: {
+      width: '100%',
+      '& .MuiSnackbar-anchorOriginTopCenter': {
+        top: '80px !important'
+      },
+      '& > * + *': {
+        marginTop: 20,
+      },
+    },
+    customMess: {
+      '& > div:first-child': {
+        display: 'none'
+      }
+    },
     icLogo: {
       height: 40,
       padding: "20px 55px",
@@ -61,11 +75,9 @@ export default makeStyles(() =>
       "& > span": {
         "&:first-child": {
           fontSize: 40,
-          fontFamily: 'Arial Rounded MT !important',
         },
         "&:last-child": {
           fontSize: 24,
-          fontFamily: 'Arial Rounded MT !important',
         },
       },
       '@media(max-width: 831px)': {

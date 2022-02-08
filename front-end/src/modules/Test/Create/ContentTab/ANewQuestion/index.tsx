@@ -1,9 +1,8 @@
 import {
-  FormControlLabel, Checkbox,
-  Accordion, AccordionDetails, AccordionSummary, IconButton, Typography
+  Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel, IconButton, Typography
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import InputsRichtext from 'components/InputsRichtext';
+import QuestionSelectForm from 'components/QuestionSelectForm';
 import images from 'config/images';
 import { memo, useState } from 'react';
 import useStyles from './styles';
@@ -51,6 +50,14 @@ const ANewQuestion = memo(() => {
               name="shuffle" />}
             label="Shuffle Answer"
           />
+          <FormControlLabel
+            labelPlacement='start'
+            onClick={e => e.stopPropagation()}
+            control={<input
+              className={classes.scoreInput}
+            />}
+            label="Score "
+          />
           <IconButton
             onClick={handleDelete}
             size="small"
@@ -58,9 +65,7 @@ const ANewQuestion = memo(() => {
           />
         </AccordionSummary>
         <AccordionDetails className={classes.generalContent}>
-          <InputsRichtext
-            name='ANewQuestion'
-          />
+          <QuestionSelectForm />
         </AccordionDetails>
       </Accordion>
     </div>

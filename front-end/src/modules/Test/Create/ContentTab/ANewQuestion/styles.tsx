@@ -12,14 +12,28 @@ export default makeStyles(() =>
       },
       '& .MuiAccordionDetails-root': {
         paddingTop: 0
+      },
+      '& .MuiFormControlLabel-root': {
+        marginRight: 5
       }
     },
     heading: {
       marginLeft: 10,
       fontSize: 16,
-      flexBasis: '40%',
-      flexShrink: 0,
+      flexBasis: '33%',
+      flexShrink: 10,
       fontWeight: 600
+    },
+    scoreInput: {
+      borderRadius: 5,
+      border: '1px solid #BDBDBD',
+      background: '#FAFAFA',
+      margin: '0px 20px 3px 10px',
+      maxWidth: 50,
+      fontSize: 14,
+      fontWeight: 700,
+      padding: 3,
+      textAlign: 'center',
     },
     generalContent: {
       display: 'flex',

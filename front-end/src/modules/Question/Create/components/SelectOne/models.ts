@@ -8,7 +8,7 @@ export enum KeyTable {
 
 export const headerOption = [
   { name: 'IND', width: 30, key: KeyTable.IND },
-  { name: 'LABEL', width: 600, key: KeyTable.Label },
+  { name: 'LABEL', width: 400, key: KeyTable.Label },
   { name: 'SCORE', width: 80, key: KeyTable.Score },
   { name: 'CORRECT', width: 80, key: KeyTable.IsCorrect },
 ]
