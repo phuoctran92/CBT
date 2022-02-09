@@ -31,12 +31,11 @@ const App = memo((props: AppProps) => {
   const profile: IProfileState = useSelector((state: reducerType) => state.profile)
   const isLoading = useSelector((state: reducerType) => state.global.isLoading)
   const token = localStorage.getItem(ACCESS_TOKEN);
-  const [isLogin, setIsLogin] = useState(!!token)
+  const [isLogin, setIsLogin] = useState(!!token && token !== "undefined")
   const [isFirstApp, setIsFirstApp] = useState(false);
   const [isRenderApp, setIsRenderApp] = useState(false);
 
-
-  if (!!token) {
+  if (token && token !== "undefined") {
     setToken(token);
     if (!isLogin) setIsLogin(true);
     if (!isFirstApp) {
@@ -52,10 +51,10 @@ const App = memo((props: AppProps) => {
   useEffect(() => {
     const checkRenderApp = async () => {
       await sleep(1000);
-      if (isFirstApp && token) {
+      if (isFirstApp && (token && token !== "undefined")) {
         setIsRenderApp(true)
       }
-      if (!isFirstApp && !token) {
+      if (!isFirstApp && (!token || token === "undefined")) {
         setIsRenderApp(true)
       }
     }

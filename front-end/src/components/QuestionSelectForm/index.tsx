@@ -31,7 +31,7 @@ const CustomSingleValue = props => {
   return (
     <SingleValue {...props}>
       <div className={classes.option}>
-        <img src={props.data.icon} alt={props.data.icon} style={{ width: 24, height: 24 }} />
+        <img src={props.data.icon} alt={props.data.icon} style={{ width: 20, height: 20 }} />
         <p>{props.data.label}</p>
       </div>
     </SingleValue>

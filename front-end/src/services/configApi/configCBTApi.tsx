@@ -21,7 +21,7 @@ AppAPIInstance.interceptors.response.use(
     // if (response && response.data) {
     //   return response.data || null;
     // }
-    return response?.data?.result || null;
+    return response?.data || null;
   },
   error => {
     const originalRequest = error.config;

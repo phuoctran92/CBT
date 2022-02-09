@@ -44,7 +44,7 @@ const Login = () => {
       .login(values)
       .then((data) => {
         // const dataToken = parseJwt(res.data.token)
-        localStorage.setItem(ACCESS_TOKEN, data.token);
+        localStorage.setItem(ACCESS_TOKEN, data.data.token);
         setToken(data.token);
         history.push(routes.workspace);
       })

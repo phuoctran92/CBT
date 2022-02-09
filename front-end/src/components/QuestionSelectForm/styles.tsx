@@ -18,6 +18,7 @@ export default makeStyles(() =>
 			}
 		},
 		questionContainer: {
+			marginTop: -1,
 			border: '1px solid #BDBDBD',
 			width: '100%',
 			padding: 10
@@ -34,35 +35,35 @@ export const customSelectStyle = {
 	menuList: (provided, state) => ({
 		...provided,
 		color: '#333333',
-		fontSize: 16,
+		fontSize: 14,
 		fontWeight: 700,
 		padding: 0,
 	}),
 	placeholder: (provided, state) => ({
 		...provided,
 		color: '#BDBDBD',
-		fontSize: 16,
+		fontSize: 14,
 	}),
 	control: (provided, state) => ({
 		...provided,
 		minWidth: 220,
 		borderRadius: "5px 5px 0 0",
-		border: '2px solid #BDBDBD',
+		border: '1px solid #BDBDBD',
 		'&:hover': {
-			border: '2px solid #BDBDBD',
+			border: '1px solid #BDBDBD',
 		},
 		boxShadow: 'none'
 	}),
 	valueContainer: (provided, state) => ({
 		...provided,
 		color: '#333333',
-		fontSize: 16,
+		fontSize: 14,
 		fontWeight: 700
 	}),
 	input: (provided, state) => ({
 		...provided,
 		color: '#333333',
-		fontSize: 16,
+		fontSize: 14,
 		fontWeight: 700
 	}),
 	option: (provided, state) => ({

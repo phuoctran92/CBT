@@ -16,7 +16,7 @@ const Routes = memo((props: IRoutes) => {
   return (
     <Suspense fallback={<LoadingFullPage isShow={true} />}>
       <Switch>
-        <Redirect exact from={routes.default} to={routes.login} />
+        <Redirect exact from={routes.default} to={props.isLoggedIn ? routes.question.default : routes.login} />
         <PrivateRoute
           exact
           isLoggedIn={!props.isLoggedIn}
@@ -28,7 +28,7 @@ const Routes = memo((props: IRoutes) => {
           path={routes.default}
           urlRedirect={routes.login}
           component={MasterLayout}
-          isLoggedIn={!props.isLoggedIn}
+          isLoggedIn={props.isLoggedIn}
         />
       </Switch>
     </Suspense>)
