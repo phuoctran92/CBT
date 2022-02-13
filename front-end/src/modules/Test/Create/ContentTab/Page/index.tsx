@@ -4,6 +4,7 @@ import Images from 'config/images';
 import { memo, useState } from 'react';
 import ANewQuestion from '../ANewQuestion';
 import Description from '../Description';
+import SingleSection from '../Section';
 import SelectContentPopup from '../SelectContentPopup';
 import useStyles from './styles';
 
@@ -34,6 +35,7 @@ const Page = memo((props: PageProps) => {
       <Grid item md={12}>
         <Description />
         <ANewQuestion />
+        <SingleSection />
       </Grid>
       <Grid item container justify="flex-end" md={12} >
         <ButtonsOutline

@@ -1,17 +1,18 @@
 import {
-  Table, TableBody, TableCell, TableContainer, TableHead,
-  TableRow, Grid, TextField, Checkbox
-} from "@material-ui/core"
+  Checkbox, Grid, Table, TableBody, TableCell, TableContainer, TableHead,
+  TableRow, TextField
+} from "@material-ui/core";
+import ButtonAction from "components/ButtonAction";
+import ButtonsOutline from "components/ButtonsOutline";
 import CategoriesSelect from "components/CategoriesSelect";
 import Inputs from "components/Inputs";
 import InputsRichtext from "components/InputsRichtext";
-import ButtonAction from "components/ButtonAction"
-import ButtonsOutline from "components/ButtonsOutline"
-import PopupEditAnswer from "components/PopupEditAnswer"
-import { memo, useState } from "react"
-import { headerOption, SelectOneAnswer } from './models'
-import useStyles from "./styles"
-import Images from 'config/images'
+import PopupEditAnswer from "components/PopupEditAnswer";
+import Images from 'config/images';
+import produce from "immer";
+import { memo, useState } from "react";
+import { headerOption, SelectOneQuestion } from './models';
+import useStyles from "./styles";
 
 const categoryOptions = [
   { value: "ielts", label: "IELTS" },
@@ -22,29 +23,119 @@ const categoryOptions = [
 const SelectOne = memo(() => {
   const classes = useStyles()
   const [openEdit, setOpenEdit] = useState(false)
+  const [answerId, setAnswerId] = useState(0)
 
-  const initialQuestion: SelectOneAnswer[] = [
-    {
-      displayOrder: 0,
-      content: '123',
-      score: 100,
-      isCorrect: true
-    },
-    {
-      displayOrder: 1,
-      content: "123",
-      score: 0,
-      isCorrect: false
-    },
-  ]
+  const initialQuestion: SelectOneQuestion =
+  {
+    questionTitle: '',
+    category: "",
+    questionContent: "",
+    answers: [
+      {
+        displayOrder: 0,
+        answerContent: "",
+        score: "100",
+        penaltyScore: "0",
+        isCorrect: true,
+        feedback: ""
+      },
+      {
+        displayOrder: 0,
+        answerContent: "",
+        score: "0",
+        penaltyScore: "0",
+        isCorrect: false,
+        feedback: ""
+      }
+    ]
+  }
 
-  const [answerList, setAnswerList] = useState<SelectOneAnswer[]>(initialQuestion)
+  const [question, setQuestion] = useState<SelectOneQuestion>(initialQuestion)
+
+  const handleChangeQuestionContent = (data) => {
+    setQuestion(
+      produce(draft => {
+        draft.questionContent = data
+      })
+    )
+  }
+  const handleChangeQuestionTitle = (e) => {
+    setQuestion(
+      produce(draft => {
+        draft.questionTitle = e.target.value
+      })
+    )
+  }
+  const handleChangeAnswerContent = (index: number) => (event) => {
+    setQuestion(
+      produce(draft => {
+        draft.answers[index].answerContent = event.target.value
+      })
+    )
+  }
+  const handleChangeAnswerScore = (index: number) => (event) => {
+    setQuestion(
+      produce(draft => {
+        draft.answers[index].score = event.target.value
+      })
+    )
+  }
+  const handleChangeCorrectAnswer = (index: number) => (event) => {
+    setQuestion(
+      produce(draft => {
+        if (!draft.answers[index].isCorrect) {
+          draft.answers[index].isCorrect = event.target.checked;
+          for (let i = 0; i < draft.answers.length; i++) {
+            if (i !== index) {
+              draft.answers[i].isCorrect = false;
+            }
+          }
+        }
+      })
+    )
+  }
+  const handleEditAnswer = (index: number) => () => {
+    setAnswerId(index)
+    setOpenEdit(true)
+  }
+  const handleRemoveAnswer = (index: number) => () => {
+    console.log(index);
+
+    setQuestion(
+      produce(draft => {
+        draft.answers.splice(index, 1)
+      })
+    )
+  }
+  const handleAddAnswer = () => {
+    setQuestion(
+      produce(draft => {
+        draft.answers = [...draft.answers, {
+          displayOrder: 0,
+          answerContent: "",
+          score: "0",
+          penaltyScore: "0",
+          isCorrect: false,
+          feedback: ""
+        }]
+      }))
+  }
+  const handleChangeAdvanceAnswer = (data) => {
+    setOpenEdit(false)
+    setQuestion(
+      produce(draft => {
+        draft.answers[answerId] = data
+      })
+    )
+  }
 
   return (
     <Grid container className={classes.container}>
       <Grid item md={9} >
         <Inputs
-          name="title"
+          onChange={handleChangeQuestionTitle}
+          defaultValue={question.questionTitle}
+          name="questionTitle"
           title="Question Title"
           placeholder="Insert question title here..."
         />
@@ -59,7 +150,8 @@ const SelectOne = memo(() => {
       </Grid>
       <Grid item md={12} >
         <InputsRichtext
-          name="content"
+          onChange={handleChangeQuestionContent}
+          name="questionContent"
           title="Question Content"
           placeholder="Insert question content here..."
         />
@@ -80,12 +172,12 @@ const SelectOne = memo(() => {
               </TableRow>
             </TableHead>
             <TableBody className={classes.tableBody}>
-              {answerList && answerList.map((row, index) => {
+              {question.answers?.map((row, index) => {
                 return (
                   <TableRow
                     key={index}
                   >
-                    <TableCell align="center">{row.displayOrder}</TableCell>
+                    <TableCell align="center">{index}</TableCell>
                     <TableCell className={classes.answerContent} >
                       <TextField
                         fullWidth
@@ -93,7 +185,8 @@ const SelectOne = memo(() => {
                         InputProps={{
                           disableUnderline: true,
                         }}
-                        defaultValue={row.content}
+                        value={row.answerContent}
+                        onChange={handleChangeAnswerContent(index)}
                       />
                     </TableCell>
                     <TableCell align="center" className={classes.answerScore}>
@@ -102,19 +195,24 @@ const SelectOne = memo(() => {
                         InputProps={{
                           disableUnderline: true,
                         }}
-                        defaultValue={row.score}
+                        value={row.score}
+                        onChange={handleChangeAnswerScore(index)}
                       />
                     </TableCell>
                     <TableCell align="center">
-                      <Checkbox color="primary" />
+                      <Checkbox
+                        checked={row.isCorrect}
+                        onChange={handleChangeCorrectAnswer(index)}
+                        color="primary"
+                      />
                     </TableCell>
                     <TableCell align="center">
                       <ButtonAction
                         btnType="edit"
-                        onClick={() => setOpenEdit(true)} />
+                        onClick={handleEditAnswer(index)} />
                       <ButtonAction
                         btnType="delete"
-                        onClick={() => { }} />
+                        onClick={handleRemoveAnswer(index)} />
                     </TableCell>
                   </TableRow>
                 )
@@ -127,12 +225,14 @@ const SelectOne = memo(() => {
           children="More Option"
           icon={Images.CBTicPlusCircleGreen}
           placementIcon={true}
+          onClick={handleAddAnswer}
         />
-        <PopupEditAnswer
+        {openEdit && <PopupEditAnswer
+          answer={question.answers[answerId]}
           open={openEdit}
           onClickCancel={() => setOpenEdit(false)}
-          onClickSuccess={() => setOpenEdit(false)}
-        />
+          onClickSuccess={handleChangeAdvanceAnswer}
+        />}
       </Grid>
     </Grid>
   )

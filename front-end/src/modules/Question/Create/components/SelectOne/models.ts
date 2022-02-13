@@ -13,9 +13,17 @@ export const headerOption = [
   { name: 'CORRECT', width: 80, key: KeyTable.IsCorrect },
 ]
 
+export interface SelectOneQuestion {
+  questionTitle: string,
+  category: string
+  questionContent: string,
+  answers: SelectOneAnswer[]
+}
 export interface SelectOneAnswer {
   displayOrder: number,
-  content: string,
-  score: number,
-  isCorrect: boolean
+  answerContent: string,
+  score: string,
+  penaltyScore: string,
+  isCorrect: boolean,
+  feedback: string
 }

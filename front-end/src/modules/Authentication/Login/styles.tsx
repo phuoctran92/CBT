@@ -92,35 +92,6 @@ export default makeStyles(() =>
     href: {
       color: '#BDBDBD !important'
     },
-    icRabbit: {
-      //display: "flex",
-      marginTop: -41,
-      "& > img": {
-        "&:first-child": {
-          width: "50%",
-          transform: "translateX(20%)",
-        },
-        "&:last-child": {
-          width: "18%",
-          transform: "translateX(40%) translateY(-170%)",
-
-        },
-      },
-      '@media(max-width: 726px)': {
-        display: 'none'
-      },
-    },
-    icRabbitInvalid: {
-      //display: "flex",
-      marginTop: -41,
-      "& > img": {
-        width: "64%",
-        transform: "translateX(20%)",
-      },
-      '@media(max-width: 726px)': {
-        display: 'none'
-      },
-    },
     input: {
       justifyContent: "center",
       display: "grid",
@@ -137,9 +108,9 @@ export default makeStyles(() =>
       "& > div": {
         border: "2px solid transparent !important",
         background: "#FFFFFF !important",
-        "&:focus-within": {
-          border: "2px solid #304D95 !important",
-        },
+        // "&:focus-within": {
+        //   border: "2px solid #304D95 !important",
+        // },
         "& > input": {
           height: 53,
         },
@@ -148,10 +119,10 @@ export default makeStyles(() =>
     inputError: {
       "& > div": {
         border: "2px solid #FD5A65 !important",
-        background: '#FFD1D1 !important',
+        background: '#FFFFFF !important',
         "&:focus-within": {
           border: "2px solid #FD5A65 !important",
-          background: '#FFD1D1 !important',
+          background: '#FFFFFF !important',
         }
       },
     },

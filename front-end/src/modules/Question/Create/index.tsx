@@ -13,6 +13,7 @@ import Matching from './components/Matching'
 import SelectMany from './components/SelectMany'
 import SelectOne from './components/SelectOne'
 import useStyles from "./styles"
+import { FormProvider, useForm } from 'react-hook-form';
 
 const renderQuestionForm = (type: number) => {
   switch (type) {
@@ -34,6 +35,31 @@ const renderQuestionForm = (type: number) => {
 }
 
 const CreateQuestion = memo(() => {
+  const methods = useForm({
+    defaultValues: {
+      questionTitle: '',
+      category: "",
+      questionContent: "",
+      answers: [
+        {
+          displayOrder: 0,
+          answerContent: "",
+          score: 100,
+          penaltyScore: 0,
+          isCorrect: true,
+          feedback: ""
+        },
+        {
+          displayOrder: 1,
+          answerContent: "",
+          score: 100,
+          penaltyScore: 0,
+          isCorrect: false,
+          feedback: ""
+        }
+      ]
+    }
+  })
   const classes = useStyles()
   const [type, setType] = useState(0)
 
@@ -59,28 +85,32 @@ const CreateQuestion = memo(() => {
         type={type}
         onChange={handleChangeType}
       />
-      <Grid container className={classes.content}>
-        {
-          renderQuestionForm(type)
-        }
-        <Grid item md={12} className={classes.groupBtn}>
-          <Buttons
-            children="Preview"
-            icon={Images.CBTicEyeWhite}
-            placementIcon={true}
-          />
-          <Buttons
-            children="Save As Draft"
-            icon={Images.CBTicFileArrowDown}
-            placementIcon={true}
-          />
-          <Buttons
-            children="Publish"
-            icon={Images.CBTicPlusCircleWhite}
-            placementIcon={true}
-          />
-        </Grid>
-      </Grid>
+      <FormProvider {...methods}>
+        <form autoComplete="off">
+          <Grid container className={classes.content}>
+            {
+              renderQuestionForm(type)
+            }
+            <Grid item md={12} className={classes.groupBtn}>
+              <Buttons
+                children="Preview"
+                icon={Images.CBTicEyeWhite}
+                placementIcon={true}
+              />
+              <Buttons
+                children="Save As Draft"
+                icon={Images.CBTicFileArrowDown}
+                placementIcon={true}
+              />
+              <Buttons
+                children="Publish"
+                icon={Images.CBTicPlusCircleWhite}
+                placementIcon={true}
+              />
+            </Grid>
+          </Grid>
+        </form>
+      </FormProvider>
     </Grid>
   )
 });

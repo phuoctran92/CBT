@@ -32,18 +32,21 @@ const Essay = memo(() => {
       </Grid>
       <Grid item md={12} >
         <InputsRichtext
+          onChange={() => { }}
           name="content"
           title="Question Content"
         />
       </Grid>
       <Grid item md={12}>
         <InputsRichtext
+          onChange={() => { }}
           name="answer"
           title="Answer Content"
         />
       </Grid>
       <Grid item md={12}>
         <InputsRichtext
+          onChange={() => { }}
           name="gradingGuide"
           title="Grading Guide"
         />

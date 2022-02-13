@@ -30,6 +30,7 @@ const Description = memo(() => {
         </AccordionSummary>
         <AccordionDetails className={classes.generalContent}>
           <InputsRichtext
+            onChange={() => { }}
             name='description'
           />
         </AccordionDetails>

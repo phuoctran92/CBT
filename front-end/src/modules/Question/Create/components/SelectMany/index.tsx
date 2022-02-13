@@ -54,6 +54,7 @@ const SelectMany = memo(() => {
       </Grid>
       <Grid item md={12} >
         <InputsRichtext
+          onChange={() => { }}
           name="content"
           title="Question Content"
         />

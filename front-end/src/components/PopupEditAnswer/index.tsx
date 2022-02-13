@@ -4,26 +4,61 @@ import ButtonsOutline from 'components/ButtonsOutline';
 import Inputs from 'components/Inputs';
 import InputsRichtext from 'components/InputsRichtext';
 import Images from 'config/images';
-import { memo } from 'react';
+import produce from "immer";
+import { SelectOneAnswer } from 'modules/Question/Create/components/SelectOne/models';
+import { memo, useState } from 'react';
 import useStyles from './styles';
-
 //popupDeleteProps
 interface PopupEditAnswerProps {
-  onClickSuccess?: () => void,
-  onClickCancel?: () => void,
+  onClickSuccess?: Function,
+  onClickCancel?: Function,
   open: boolean,
+  answer: SelectOneAnswer
 }
 
 const PopupEditAnswer = memo((props: PopupEditAnswerProps) => {
-  const { onClickSuccess, onClickCancel, open } = props;
+  const { onClickSuccess, onClickCancel, open, answer } = props;
   const classes = useStyles();
+  const [answerContent, setAnswerContent] = useState<SelectOneAnswer>(answer)
+  // useEffect(() => {
+  //   setAnswerContent(answer)
+  // }, [answer])
 
   const handleSuccess = () => {
-    onClickSuccess && onClickSuccess()
+    onClickSuccess && onClickSuccess(answerContent)
   }
 
   const handleClose = () => {
     onClickCancel && onClickCancel()
+  }
+
+  const handleChangeContent = (data) => {
+    setAnswerContent(
+      produce(draft => {
+        draft.answerContent = data
+      })
+    )
+  }
+  const handleChangeScore = (event) => {
+    setAnswerContent(
+      produce(draft => {
+        draft.score = event.target.value
+      })
+    )
+  }
+  const handleChangePenaltyScore = (event) => {
+    setAnswerContent(
+      produce(draft => {
+        draft.penaltyScore = event.target.value
+      })
+    )
+  }
+  const handleChangeFeedback = (data) => {
+    setAnswerContent(
+      produce(draft => {
+        draft.feedback = data
+      })
+    )
   }
 
   return (
@@ -37,26 +72,34 @@ const PopupEditAnswer = memo((props: PopupEditAnswerProps) => {
         <p className={classes.title}>Answer Edit</p>
         <Grid item md={12} >
           <InputsRichtext
+            onChange={handleChangeContent}
             name="answer"
             title="Answer Content"
+            defaultValue={answerContent?.answerContent}
           />
         </Grid>
         <Grid item md={6} >
           <Inputs
+            onChange={handleChangeScore}
             name="score"
             title='Score'
+            value={answerContent?.score}
           />
         </Grid>
         <Grid item md={6} >
           <Inputs
+            onChange={handleChangePenaltyScore}
             name="penaltyScore"
             title='Penalty Score'
+            value={answerContent?.penaltyScore}
           />
         </Grid>
         <Grid item md={12} >
           <InputsRichtext
+            onChange={handleChangeFeedback}
             name="feedback"
             title="Feedback"
+            defaultValue={answerContent?.feedback}
           />
         </Grid>
         <Grid item md={12} alignItems="center" className={classes.groupBtn}>

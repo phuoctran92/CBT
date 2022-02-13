@@ -61,7 +61,7 @@ export default makeStyles(() =>
         background: '#ffd1d1',
         '& > .MuiInputBase-input:-webkit-autofill': {
           "&:focus": {
-            '-webkit-box-shadow': '0 0 0 30px #ffd1d1 inset !important',
+            '-webkit-box-shadow': '0 0 0 30px #FFFFFF inset !important',
           },
         },
       },

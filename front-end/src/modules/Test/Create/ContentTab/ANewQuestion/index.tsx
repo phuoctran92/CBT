@@ -56,7 +56,7 @@ const ANewQuestion = memo(() => {
             control={<input
               className={classes.scoreInput}
             />}
-            label="Score "
+            label="Score"
           />
           <IconButton
             onClick={handleDelete}

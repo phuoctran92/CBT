@@ -109,12 +109,12 @@ export default makeStyles(() =>
       },
     },
     containerLogout: {
-      paddingLeft: 25,
+      paddingLeft: 30,
       alignItems: "center",
       display: "flex",
       marginBottom: "50px !important",
       "& >img": {
-        paddingRight: 21,
+        paddingRight: 15,
       },
       "& >p": {
         fontSize: 14,

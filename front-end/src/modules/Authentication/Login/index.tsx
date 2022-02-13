@@ -28,6 +28,7 @@ const Login = () => {
   const [open, setOpen] = useState(false);
 
   const { handleSubmit, register, formState: { errors } } = useForm();
+  console.log(errors);
 
   const validateError = (value) => {
     if (value.length < 6) {
@@ -94,13 +95,13 @@ const Login = () => {
               className={
                 clsx({
                   [classes.disabled]: true,
-                  [classes.inputError]: !!errors?.userNameOrEmailAddress?.message,
+                  [classes.inputError]: !!errors?.username?.message,
                 })
               }
               showIcon={true}
               img={Images.icEmail}
               inputRef={register("email", { required: 'Email cannot be empty' })}
-              errorMessage={errors?.userNameOrEmailAddress ? errors.userNameOrEmailAddress.message : null}
+              errorMessage={errors?.email ? errors.email.message : null}
             />
             <InputsLogin
               placeholder="Password"

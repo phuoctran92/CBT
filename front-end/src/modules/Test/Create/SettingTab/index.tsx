@@ -61,6 +61,7 @@ const SettingTab = memo(() => {
             placeholder='Enter Test title here...'
           />
           <InputsRichtext
+            onChange={() => { }}
             name='description'
             title='Description'
           />
