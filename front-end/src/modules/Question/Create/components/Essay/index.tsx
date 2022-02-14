@@ -28,6 +28,7 @@ const Essay = memo(() => {
           label="Category"
           options={categoryOptions}
           placeholder="Category"
+          onChange={() => { }}
         />
       </Grid>
       <Grid item md={12} >

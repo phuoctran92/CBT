@@ -53,7 +53,10 @@ const CustomOptions = props => {
 const renderQuestion = (type: number) => {
   switch (type) {
     case 0:
-      return <SelectOne />;
+      return <SelectOne
+        preview={false}
+        onClosePreview={() => { }}
+      />;
     case 1:
       return <SelectMany />;
     case 2:

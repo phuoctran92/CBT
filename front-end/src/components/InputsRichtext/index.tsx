@@ -30,8 +30,8 @@ const InputsRichtext = memo((props: InputsRichtextProps) => {
   }
 
   return (
-    <div>
-      <Typography className={classes.textTitle} classes={{ root: classes.textTitle }}>{title}</Typography>
+    <div className={classes.container}>
+      <Typography className={classes.textTitle}>{title}</Typography>
       <CKEditor
         editor={ClassicEditor}
         data={addData}

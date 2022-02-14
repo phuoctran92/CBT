@@ -28,6 +28,7 @@ export default makeStyles(() =>
       '& > div': {
         border: '1px solid #BDBDBD',
         background: '#FAFAFA',
+        minHeight: 40,
         '& > .MuiInputBase-input:-webkit-autofill': {
           '-webkit-box-shadow': '0 0 0 30px white inset !important',
         },

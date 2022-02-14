@@ -12,6 +12,7 @@ import Images from 'config/images';
 import produce from "immer";
 import { memo, useState } from "react";
 import { headerOption, SelectOneQuestion } from './models';
+import SelectOnePreview from "./SelectOnePreview";
 import useStyles from "./styles";
 
 const categoryOptions = [
@@ -19,8 +20,13 @@ const categoryOptions = [
   { value: "toeic", label: "TOEIC" },
   { value: "general", label: "General" }
 ]
+interface SelectOneProps {
+  preview: boolean,
+  onClosePreview: Function
+}
 
-const SelectOne = memo(() => {
+const SelectOne = memo((props: SelectOneProps) => {
+  const { preview, onClosePreview } = props
   const classes = useStyles()
   const [openEdit, setOpenEdit] = useState(false)
   const [answerId, setAnswerId] = useState(0)
@@ -51,7 +57,9 @@ const SelectOne = memo(() => {
   }
 
   const [question, setQuestion] = useState<SelectOneQuestion>(initialQuestion)
-
+  const handleClosePreview = () => {
+    onClosePreview()
+  }
   const handleChangeQuestionContent = (data) => {
     setQuestion(
       produce(draft => {
@@ -66,6 +74,14 @@ const SelectOne = memo(() => {
       })
     )
   }
+  const handleChangeCategory = (e) => {
+    setQuestion(
+      produce(draft => {
+        draft.category = e
+      })
+    )
+  }
+
   const handleChangeAnswerContent = (index: number) => (event) => {
     setQuestion(
       produce(draft => {
@@ -138,6 +154,7 @@ const SelectOne = memo(() => {
           name="questionTitle"
           title="Question Title"
           placeholder="Insert question title here..."
+          multiline
         />
       </Grid>
       <Grid item md={3} >
@@ -146,6 +163,7 @@ const SelectOne = memo(() => {
           label="Category"
           options={categoryOptions}
           placeholder="Category"
+          onChange={handleChangeCategory}
         />
       </Grid>
       <Grid item md={12} >
@@ -233,6 +251,11 @@ const SelectOne = memo(() => {
           onClickCancel={() => setOpenEdit(false)}
           onClickSuccess={handleChangeAdvanceAnswer}
         />}
+        <SelectOnePreview
+          open={preview}
+          question={question}
+          onClose={handleClosePreview}
+        />
       </Grid>
     </Grid>
   )

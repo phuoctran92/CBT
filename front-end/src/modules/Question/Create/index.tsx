@@ -15,24 +15,7 @@ import SelectOne from './components/SelectOne'
 import useStyles from "./styles"
 import { FormProvider, useForm } from 'react-hook-form';
 
-const renderQuestionForm = (type: number) => {
-  switch (type) {
-    case 0:
-      return <SelectOne />;
-    case 1:
-      return <SelectMany />;
-    case 2:
-      return <Matching />;
-    case 3:
-      return <Dropdown />;
-    case 4:
-      return <FillInGaps />;
-    case 5:
-      return <Essay />;
-    default:
-      return null;
-  }
-}
+
 
 const CreateQuestion = memo(() => {
   const methods = useForm({
@@ -62,7 +45,32 @@ const CreateQuestion = memo(() => {
   })
   const classes = useStyles()
   const [type, setType] = useState(0)
+  const [preview, setPreview] = useState(false)
+  const handleClosePreview = () => {
+    setPreview(false)
+  }
 
+  const renderQuestionForm = (type: number) => {
+    switch (type) {
+      case 0:
+        return <SelectOne
+          preview={preview}
+          onClosePreview={handleClosePreview}
+        />;
+      case 1:
+        return <SelectMany />;
+      case 2:
+        return <Matching />;
+      case 3:
+        return <Dropdown />;
+      case 4:
+        return <FillInGaps />;
+      case 5:
+        return <Essay />;
+      default:
+        return null;
+    }
+  }
   const handleChangeType = (e) => {
     setType(e)
   }
@@ -96,6 +104,7 @@ const CreateQuestion = memo(() => {
                 children="Preview"
                 icon={Images.CBTicEyeWhite}
                 placementIcon={true}
+                onClick={() => setPreview(true)}
               />
               <Buttons
                 children="Save As Draft"
