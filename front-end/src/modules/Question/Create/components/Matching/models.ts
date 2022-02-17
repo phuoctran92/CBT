@@ -13,13 +13,13 @@ export const headerOption = [
   { name: 'CORRECT', width: 80, key: KeyTable.IsCorrect },
 ]
 
-export interface SelectManyQuestion {
+export interface MatchingQuestion {
   questionTitle: string,
   category: string
   questionContent: string,
-  answers: SelectManyAnswer[]
+  answers: MatchingAnswer[]
 }
-export interface SelectManyAnswer {
+export interface MatchingAnswer {
   displayOrder: number,
   answerContent: string,
   score: string,

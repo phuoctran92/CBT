@@ -58,9 +58,15 @@ const renderQuestion = (type: number) => {
         onClosePreview={() => { }}
       />;
     case 1:
-      return <SelectMany />;
+      return <SelectMany
+        preview={false}
+        onClosePreview={() => { }}
+      />;
     case 2:
-      return <Matching />;
+      return <Matching
+        preview={false}
+        onClosePreview={() => { }}
+      />;
     case 3:
       return <Dropdown />;
     case 4:

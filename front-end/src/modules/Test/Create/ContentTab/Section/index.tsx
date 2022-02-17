@@ -7,7 +7,6 @@ import { memo, useState } from 'react';
 import Column from './Column';
 import useStyles from './styles';
 
-
 const SingleSection = memo(() => {
   const classes = useStyles();
   const [shuffleQuestion, setShuffleQuestion] = useState(false)

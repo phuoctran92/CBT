@@ -15,8 +15,6 @@ import SelectOne from './components/SelectOne'
 import useStyles from "./styles"
 import { FormProvider, useForm } from 'react-hook-form';
 
-
-
 const CreateQuestion = memo(() => {
   const methods = useForm({
     defaultValues: {
@@ -58,9 +56,15 @@ const CreateQuestion = memo(() => {
           onClosePreview={handleClosePreview}
         />;
       case 1:
-        return <SelectMany />;
+        return <SelectMany
+          preview={preview}
+          onClosePreview={handleClosePreview}
+        />;
       case 2:
-        return <Matching />;
+        return <Matching
+          preview={preview}
+          onClosePreview={handleClosePreview}
+        />;
       case 3:
         return <Dropdown />;
       case 4:
