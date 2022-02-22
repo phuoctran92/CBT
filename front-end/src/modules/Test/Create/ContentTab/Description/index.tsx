@@ -32,6 +32,7 @@ const Description = memo(() => {
           <InputsRichtext
             onChange={() => { }}
             name='description'
+            value=""
           />
         </AccordionDetails>
       </Accordion>

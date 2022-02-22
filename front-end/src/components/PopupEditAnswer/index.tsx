@@ -75,7 +75,7 @@ const PopupEditAnswer = memo((props: PopupEditAnswerProps) => {
             onChange={handleChangeContent}
             name="answer"
             title="Answer Content"
-            defaultValue={answerContent?.answerContent}
+            value={answerContent?.answerContent}
           />
         </Grid>
         <Grid item md={6} >
@@ -99,7 +99,7 @@ const PopupEditAnswer = memo((props: PopupEditAnswerProps) => {
             onChange={handleChangeFeedback}
             name="feedback"
             title="Feedback"
-            defaultValue={answerContent?.feedback}
+            value={answerContent?.feedback}
           />
         </Grid>
         <Grid item md={12} alignItems="center" className={classes.groupBtn}>

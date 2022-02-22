@@ -1,41 +1,51 @@
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ReactQuill, { Quill } from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { Typography } from '@material-ui/core';
-import { memo, useState } from 'react';
+import { memo, useState, useEffect } from 'react';
 import useStyles from './styles';
+import Images from 'config/images'
 interface InputsRichtextProps {
   title?: string,
   placeholder?: string,
   name: string,
-  onChange: Function,
-  defaultValue?: string
+  onChange: any,
+  value: any
 }
 const InputsRichtext = memo((props: InputsRichtextProps) => {
   const classes = useStyles();
-  const { title, onChange, defaultValue } = props;
+  const { title, value, onChange, placeholder } = props;
 
-  //const [addedData, showData] = useState(0);
-  const [addData, setVal] = useState(defaultValue)
+  const PopAnswer = () => {
+    <span id="create-blank">Create Blank <img src={Images.CBTicTag} alt="" /></span>
+  }
 
-  // useEffect(() => {
-  //   if (defaultValue) {
-  //     setVal(defaultValue)
-  //   }
-  // }, [defaultValue])
-
-  const handleChange = (e, editor) => {
-    const data = editor.getData()
-    setVal(data)
-    onChange(data)
+  const modules = {
+    toolbar: [
+      [{ 'size': ['small', false, 'large', 'huge'] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'align': [] }],
+      [{ 'indent': '-1' }, { 'indent': '+1' }],
+      [{ 'color': [] }, { 'background': [] }],
+      ['blockquote', 'code-block'],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      [{ 'script': 'sub' }, { 'script': 'super' }],
+      ['image'],
+      ['video'],
+      ['clean'],
+      ['create-blank']
+    ]
   }
 
   return (
     <div className={classes.container}>
       <Typography className={classes.textTitle}>{title}</Typography>
-      <CKEditor
-        editor={ClassicEditor}
-        data={addData}
-        onChange={handleChange}
+      <ReactQuill
+        theme="snow"
+        value={value || ''}
+        onChange={onChange}
+        className={classes.quill}
+        modules={modules}
+        placeholder={placeholder}
       />
     </div>
   );

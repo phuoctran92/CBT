@@ -56,8 +56,10 @@ import CBTicShuffleBlack from 'asset/img/cbt-ic-shuffle-black.svg';
 import CBTicTableBlack from 'asset/img/cbt-ic-table-black.svg';
 import CBTicRowsBlack from 'asset/img/cbt-ic-rows-black.svg';
 import CBTicPencilBlack from 'asset/img/cbt-ic-pencil-black.svg';
+import CBTicTag from 'asset/img/cbt-ic-tag.svg';
 
 const images = {
+  CBTicTag,
   CBTicRecordBlack,
   CBTicCheckBlack,
   CBTicShuffleBlack,

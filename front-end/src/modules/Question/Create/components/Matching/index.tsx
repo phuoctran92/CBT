@@ -108,7 +108,6 @@ const Matching = memo((props: MatchingProps) => {
     setOpenEdit(true)
   }
   const handleRemoveAnswer = (index: number) => () => {
-    console.log(index);
 
     setQuestion(
       produce(draft => {
@@ -165,6 +164,7 @@ const Matching = memo((props: MatchingProps) => {
           name="questionContent"
           title="Question Content"
           placeholder="Insert question content here..."
+          value={question.questionContent}
         />
       </Grid>
       <Grid container >

@@ -17,6 +17,38 @@ export default makeStyles(() =>
       fontWeight: 700,
       whiteSpace: 'nowrap',
     },
+    quill: {
+      '& > .ql-toolbar': {
+        background: '#FAFAFA',
+        '& > .ql-formats': {
+          '& > button': {
+            '&:hover': {
+              background: '#dedede90'
+            },
+          },
+          '& > span': {
+            '&:hover': {
+              background: '#dedede'
+            }
+          },
+        },
+        '& > span': {
+          marginRight: '0px !important',
+          borderRight: '1px solid #BDBDBD'
+        },
+        '& .ql-active': {
+          background: '#dedede'
+        },
+        '& .ql-create-blank': {
+          background: '#304D95',
+          borderRadius: 5,
+          marginLeft: 10,
+          marginRight: 10,
+          minWidth: 100,
+          borderRight: 'unset !important'
+        }
+      }
+    }
   }),
   {
     name: 'Inputs',

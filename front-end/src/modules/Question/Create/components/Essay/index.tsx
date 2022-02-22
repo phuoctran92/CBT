@@ -36,6 +36,7 @@ const Essay = memo(() => {
           onChange={() => { }}
           name="content"
           title="Question Content"
+          value={""}
         />
       </Grid>
       <Grid item md={12}>
@@ -43,6 +44,7 @@ const Essay = memo(() => {
           onChange={() => { }}
           name="answer"
           title="Answer Content"
+          value={""}
         />
       </Grid>
       <Grid item md={12}>
@@ -50,6 +52,7 @@ const Essay = memo(() => {
           onChange={() => { }}
           name="gradingGuide"
           title="Grading Guide"
+          value={""}
         />
       </Grid>
     </Grid>

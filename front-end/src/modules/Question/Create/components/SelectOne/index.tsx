@@ -169,6 +169,7 @@ const SelectOne = memo((props: SelectOneProps) => {
       <Grid item md={12} >
         <InputsRichtext
           onChange={handleChangeQuestionContent}
+          value={question.questionContent}
           name="questionContent"
           title="Question Content"
           placeholder="Insert question content here..."

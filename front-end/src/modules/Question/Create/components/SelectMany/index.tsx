@@ -165,6 +165,7 @@ const SelectMany = memo((props: SelectManyProps) => {
           name="questionContent"
           title="Question Content"
           placeholder="Insert question content here..."
+          value={question.questionContent}
         />
       </Grid>
       <Grid container >

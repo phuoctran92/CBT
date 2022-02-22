@@ -64,6 +64,7 @@ const SettingTab = memo(() => {
             onChange={() => { }}
             name='description'
             title='Description'
+            value=""
           />
         </AccordionDetails>
       </Accordion>
