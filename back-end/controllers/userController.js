@@ -99,17 +99,24 @@ exports.addAdminForWorkspace = async (req, res, next) => {
 
 exports.updateUser = async (req, res, next) => {
   try {
-    const { workspaceDomain } = req.params
-    const workspace = await Workspace.findOneAndUpdate(
-      { domain: workspaceDomain },
-      { ...req.body },
-      { new: true, runValidator: true }
-    )
-
-    res.status(200).json({
-      status: 'Success',
-      data: { workspace },
-    })
+    const { userId } = req.params
+    const currentUserRole = req.user.role
+    const currentUserId = req.user.userId
+    if (currentUserId === userId || currentUserRole === 'ADMIN_WORKSPACE') {
+      const user = await User.findOneAndUpdate(
+        { _id: userId },
+        { ...req.body },
+        { new: true, runValidator: true }
+      )
+      res.status(200).json({
+        status: 'Success',
+        data: { user },
+      })
+    } else {
+      const err = new Error('You are not allowed to do it')
+      err.statusCode = 403
+      return next(err)
+    }
   } catch (error) {
     console.log(error)
     next(error)
@@ -118,15 +125,10 @@ exports.updateUser = async (req, res, next) => {
 
 exports.deleteUser = async (req, res, next) => {
   try {
-    const { workspaceDomain } = req.params
-    const foundWorkspace = await Workspace.findOne({ domain: workspaceDomain })
-    if (!foundWorkspace) {
-      return res.status(300).json({ message: 'Cant find workspace' })
-    }
-    await Workspace.findOneAndRemove({ domain: workspaceDomain })
+    await User.findOneAndRemove({ _id: req.params.userId })
     res.status(200).json({
       status: 'Success',
-      message: 'Workspace has been deleted',
+      message: 'User has been deleted',
     })
   } catch (error) {
     console.log(error)
@@ -136,12 +138,11 @@ exports.deleteUser = async (req, res, next) => {
 
 exports.getInfoUser = async (req, res, next) => {
   try {
-    const { workspaceDomain, userId } = req.params
+    const { userId } = req.params
     const currentUserRole = req.user.role
     const currentUserId = req.user.userId
     if (currentUserId === userId || currentUserRole === 'ADMIN_WORKSPACE') {
       const user = await User.findById(userId)
-      console.log(user)
       res.status(200).json({
         status: 'Success',
         data: { user },
