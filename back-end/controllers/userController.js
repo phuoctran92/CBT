@@ -1,6 +1,4 @@
 const Workspace = require('../models/Workspace')
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
 const User = require('../models/User')
 
 exports.getUsersOfWorkspace = async (req, res, next) => {
@@ -125,7 +123,7 @@ exports.updateUser = async (req, res, next) => {
 
 exports.deleteUser = async (req, res, next) => {
   try {
-    await User.findOneAndRemove({ _id: req.params.userId })
+    await User.findByIdAndRemove(req.params.userId)
     res.status(200).json({
       status: 'Success',
       message: 'User has been deleted',
