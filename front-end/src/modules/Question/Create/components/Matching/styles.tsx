@@ -63,9 +63,15 @@ export default makeStyles(() =>
       },
     },
     answerContent: {
-      background: '#FAFAFA',
-      '& > div': {
-        paddingLeft: 10
+      background: '#FFFFFF',
+      '& > p': {
+        backgroundColor: "#d1def5",
+        color: "#478dfd",
+        border: "1px solid green",
+        padding: 2,
+        margin: 5,
+        borderRadius: 5,
+        width: "fit-content",
       }
     },
     answerScore: {
@@ -73,5 +79,5 @@ export default makeStyles(() =>
       '& > div': {
         maxWidth: 40,
       }
-    }
+    },
   }))

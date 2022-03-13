@@ -1,17 +1,17 @@
 import {
-  Checkbox, Grid, Table, TableBody, TableCell, TableContainer, TableHead,
+  Checkbox, Chip, Grid, Table, TableBody, TableCell, TableContainer, TableHead,
   TableRow, TextField
 } from "@material-ui/core";
 import ButtonAction from "components/ButtonAction";
 import ButtonsOutline from "components/ButtonsOutline";
 import CategoriesSelect from "components/CategoriesSelect";
 import Inputs from "components/Inputs";
-import InputsRichtext from "components/InputsRichtext";
+import CreateGapAnswerInput from "components/CreateGapAnswerInput";
 import PopupEditAnswer from "components/PopupEditAnswer";
 import Images from 'config/images';
 import produce from "immer";
 import { memo, useState } from "react";
-import { headerOption, MatchingQuestion } from './models';
+import { headerOption, MatchingQuestion, MatchingAnswer } from './models';
 import MatchingPreview from "./MatchingPreview";
 import useStyles from "./styles";
 
@@ -36,24 +36,7 @@ const Matching = memo((props: MatchingProps) => {
     questionTitle: '',
     category: "",
     questionContent: "",
-    answers: [
-      {
-        displayOrder: 0,
-        answerContent: "",
-        score: "100",
-        penaltyScore: "0",
-        isCorrect: true,
-        feedback: ""
-      },
-      {
-        displayOrder: 0,
-        answerContent: "",
-        score: "0",
-        penaltyScore: "0",
-        isCorrect: false,
-        feedback: ""
-      }
-    ]
+    answers: []
   }
 
   const [question, setQuestion] = useState<MatchingQuestion>(initialQuestion)
@@ -82,13 +65,6 @@ const Matching = memo((props: MatchingProps) => {
     )
   }
 
-  const handleChangeAnswerContent = (index: number) => (event) => {
-    setQuestion(
-      produce(draft => {
-        draft.answers[index].answerContent = event.target.value
-      })
-    )
-  }
   const handleChangeAnswerScore = (index: number) => (event) => {
     setQuestion(
       produce(draft => {
@@ -96,10 +72,10 @@ const Matching = memo((props: MatchingProps) => {
       })
     )
   }
-  const handleChangeCorrectAnswer = (index: number) => (event) => {
+  const handleChangeAnswerPenaltyScore = (index: number) => (event) => {
     setQuestion(
       produce(draft => {
-        draft.answers[index].isCorrect = event.target.checked;
+        draft.answers[index].penaltyScore = event.target.value
       })
     )
   }
@@ -107,14 +83,8 @@ const Matching = memo((props: MatchingProps) => {
     setAnswerId(index)
     setOpenEdit(true)
   }
-  const handleRemoveAnswer = (index: number) => () => {
 
-    setQuestion(
-      produce(draft => {
-        draft.answers.splice(index, 1)
-      })
-    )
-  }
+
   const handleAddAnswer = () => {
     setQuestion(
       produce(draft => {
@@ -128,6 +98,13 @@ const Matching = memo((props: MatchingProps) => {
         }]
       }))
   }
+  const handleChangeAnswer = (data) => {
+    setQuestion(
+      produce(draft => {
+        draft.answers = data
+      }))
+  }
+
   const handleChangeAdvanceAnswer = (data) => {
     setOpenEdit(false)
     setQuestion(
@@ -159,12 +136,15 @@ const Matching = memo((props: MatchingProps) => {
         />
       </Grid>
       <Grid item md={12} >
-        <InputsRichtext
-          onChange={handleChangeQuestionContent}
+        <CreateGapAnswerInput
+          className="question-content"
+          onChangeQuestion={handleChangeQuestionContent}
           name="questionContent"
           title="Question Content"
           placeholder="Insert question content here..."
-          value={question.questionContent}
+          question={question.questionContent}
+          answer={question.answers}
+          onChangeAnswer={handleChangeAnswer}
         />
       </Grid>
       <Grid container >
@@ -177,8 +157,8 @@ const Matching = memo((props: MatchingProps) => {
                   <TableCell align="center" style={{ minWidth: option.width }} key={index}>
                     {option.name}
                   </TableCell>)}
-                <TableCell align="center" style={{ minWidth: 80 }}>
-                  ADVANCE
+                <TableCell align="center" style={{ minWidth: 50 }}>
+                  Feedback
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -186,19 +166,11 @@ const Matching = memo((props: MatchingProps) => {
               {question.answers?.map((row, index) => {
                 return (
                   <TableRow
-                    key={index}
+                    key={`answer-${index}`}
                   >
                     <TableCell align="center">{index}</TableCell>
                     <TableCell className={classes.answerContent} >
-                      <TextField
-                        fullWidth
-                        multiline
-                        InputProps={{
-                          disableUnderline: true,
-                        }}
-                        value={row.answerContent}
-                        onChange={handleChangeAnswerContent(index)}
-                      />
+                      <p>{row.answerContent}</p>
                     </TableCell>
                     <TableCell align="center" className={classes.answerScore}>
                       <TextField
@@ -210,10 +182,20 @@ const Matching = memo((props: MatchingProps) => {
                         onChange={handleChangeAnswerScore(index)}
                       />
                     </TableCell>
+                    <TableCell align="center" className={classes.answerScore}>
+                      <TextField
+                        fullWidth
+                        InputProps={{
+                          disableUnderline: true,
+                        }}
+                        value={row.penaltyScore}
+                        onChange={handleChangeAnswerPenaltyScore(index)}
+                      />
+                    </TableCell>
                     <TableCell align="center">
                       <Checkbox
+                        readOnly
                         checked={row.isCorrect}
-                        onChange={handleChangeCorrectAnswer(index)}
                         color="primary"
                       />
                     </TableCell>
@@ -221,9 +203,6 @@ const Matching = memo((props: MatchingProps) => {
                       <ButtonAction
                         btnType="edit"
                         onClick={handleEditAnswer(index)} />
-                      <ButtonAction
-                        btnType="delete"
-                        onClick={handleRemoveAnswer(index)} />
                     </TableCell>
                   </TableRow>
                 )

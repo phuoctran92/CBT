@@ -40,9 +40,8 @@ const SelectOnePreview = memo((props: SelectOnePreviewProps) => {
             {
               question.answers.map((answer, index) => {
                 return (
-                  <>
+                  <div key={index}>
                     <FormControlLabel
-                      key={index}
                       control={
                         <Radio
                           checked={answer.isCorrect}
@@ -56,7 +55,7 @@ const SelectOnePreview = memo((props: SelectOnePreviewProps) => {
                         <div dangerouslySetInnerHTML={{ __html: answer.feedback }}></div>
                       </Alert>
                     </Collapse>
-                  </>
+                  </div>
                 )
               }
               )

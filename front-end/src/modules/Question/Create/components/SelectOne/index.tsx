@@ -168,6 +168,7 @@ const SelectOne = memo((props: SelectOneProps) => {
       </Grid>
       <Grid item md={12} >
         <InputsRichtext
+          className="question-content"
           onChange={handleChangeQuestionContent}
           value={question.questionContent}
           name="questionContent"
@@ -194,7 +195,7 @@ const SelectOne = memo((props: SelectOneProps) => {
               {question.answers?.map((row, index) => {
                 return (
                   <TableRow
-                    key={index}
+                    key={`answer-${index}`}
                   >
                     <TableCell align="center">{index}</TableCell>
                     <TableCell className={classes.answerContent} >

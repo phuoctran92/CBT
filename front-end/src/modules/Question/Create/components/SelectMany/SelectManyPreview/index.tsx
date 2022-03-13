@@ -40,9 +40,8 @@ const SelectManyPreview = memo((props: SelectManyPreviewProps) => {
             {
               question.answers.map((answer, index) => {
                 return (
-                  <>
+                  <div key={index}>
                     <FormControlLabel
-                      key={index}
                       control={
                         <Checkbox
                           checked={answer.isCorrect}
@@ -56,7 +55,7 @@ const SelectManyPreview = memo((props: SelectManyPreviewProps) => {
                         <div dangerouslySetInnerHTML={{ __html: answer.feedback }}></div>
                       </Alert>
                     </Collapse>
-                  </>
+                  </div>
                 )
               }
               )

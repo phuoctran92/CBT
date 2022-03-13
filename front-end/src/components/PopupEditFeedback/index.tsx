@@ -9,14 +9,14 @@ import { SelectOneAnswer } from 'modules/Question/Create/components/SelectOne/mo
 import { memo, useState } from 'react';
 import useStyles from './styles';
 //popupDeleteProps
-interface PopupEditAnswerProps {
+interface PopupEditFeedbackProps {
   onClickSuccess?: Function,
   onClickCancel?: Function,
   open: boolean,
   answer: SelectOneAnswer
 }
 
-const PopupEditAnswer = memo((props: PopupEditAnswerProps) => {
+const PopupEditFeedback = memo((props: PopupEditFeedbackProps) => {
   const { onClickSuccess, onClickCancel, open, answer } = props;
   const classes = useStyles();
   const [answerContent, setAnswerContent] = useState<SelectOneAnswer>(answer)
@@ -122,7 +122,7 @@ const PopupEditAnswer = memo((props: PopupEditAnswerProps) => {
     </Dialog>
   );
 });
-export default PopupEditAnswer;
+export default PopupEditFeedback;
 
 
 
