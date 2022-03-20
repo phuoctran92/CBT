@@ -32,27 +32,6 @@ const PopupEditFeedback = memo((props: PopupEditFeedbackProps) => {
     onClickCancel && onClickCancel()
   }
 
-  const handleChangeContent = (data) => {
-    setAnswerContent(
-      produce(draft => {
-        draft.answerContent = data
-      })
-    )
-  }
-  const handleChangeScore = (event) => {
-    setAnswerContent(
-      produce(draft => {
-        draft.score = event.target.value
-      })
-    )
-  }
-  const handleChangePenaltyScore = (event) => {
-    setAnswerContent(
-      produce(draft => {
-        draft.penaltyScore = event.target.value
-      })
-    )
-  }
   const handleChangeFeedback = (data) => {
     setAnswerContent(
       produce(draft => {
@@ -69,32 +48,7 @@ const PopupEditFeedback = memo((props: PopupEditFeedbackProps) => {
       className={classes.dialog}
     >
       <Grid container spacing={2} className={classes.container}>
-        <p className={classes.title}>Answer Edit</p>
-        <Grid item md={12} >
-          <InputsRichtext
-            className="answer-content"
-            onChange={handleChangeContent}
-            name="answer"
-            title="Answer Content"
-            value={answerContent.answerContent}
-          />
-        </Grid>
-        <Grid item md={6} >
-          <Inputs
-            onChange={handleChangeScore}
-            name="score"
-            title='Score'
-            value={answerContent.score}
-          />
-        </Grid>
-        <Grid item md={6} >
-          <Inputs
-            onChange={handleChangePenaltyScore}
-            name="penaltyScore"
-            title='Penalty Score'
-            value={answerContent.penaltyScore}
-          />
-        </Grid>
+        <p className={classes.title}>Feedback Edit</p>
         <Grid item md={12} >
           <InputsRichtext
             className='feedback'

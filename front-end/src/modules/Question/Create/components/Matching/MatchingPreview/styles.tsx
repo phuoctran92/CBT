@@ -9,7 +9,7 @@ export default makeStyles(() =>
       }
     },
     container: {
-      minWidth: 500,
+      minWidth: 800,
       minHeight: 300,
       padding: 20
     },
@@ -25,9 +25,7 @@ export default makeStyles(() =>
     },
     answers: {
       display: 'flex',
-      flexWrap: 'wrap',
       paddingLeft: 20,
-      flexDirection: 'column',
       '& .MuiTypography-body1': {
         fontSize: 16,
         fontWeight: 500

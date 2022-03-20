@@ -20,7 +20,7 @@ export const Editor = memo((props: EditorProps) => {
     onChangeQuestion(value);
     const ans = [...value.matchAll('<ans>(.*?)</ans>')].map(e => e[1]) as string[];
     const newAnswer = ans.map((e, index) => {
-      if (answer[index]) return { ...answer[index], answerContent: e }
+      if (answer[index]) return { ...answer[index], answerContent: e, isCorrect: true }
       else return {
         displayOrder: index,
         answerContent: e,

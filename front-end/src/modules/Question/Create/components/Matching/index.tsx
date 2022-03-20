@@ -14,6 +14,7 @@ import { memo, useState } from "react";
 import { headerOption, MatchingQuestion, MatchingAnswer } from './models';
 import MatchingPreview from "./MatchingPreview";
 import useStyles from "./styles";
+import PopupEditFeedback from "components/PopupEditFeedback";
 
 const categoryOptions = [
   { value: "ielts", label: "IELTS" },
@@ -84,20 +85,19 @@ const Matching = memo((props: MatchingProps) => {
     setOpenEdit(true)
   }
 
-
-  const handleAddAnswer = () => {
-    setQuestion(
-      produce(draft => {
-        draft.answers = [...draft.answers, {
-          displayOrder: 0,
-          answerContent: "",
-          score: "0",
-          penaltyScore: "0",
-          isCorrect: false,
-          feedback: ""
-        }]
-      }))
-  }
+  // const handleAddAnswer = () => {
+  //   setQuestion(
+  //     produce(draft => {
+  //       draft.answers = [...draft.answers, {
+  //         displayOrder: 0,
+  //         answerContent: "",
+  //         score: "0",
+  //         penaltyScore: "0",
+  //         isCorrect: false,
+  //         feedback: ""
+  //       }]
+  //     }))
+  // }
   const handleChangeAnswer = (data) => {
     setQuestion(
       produce(draft => {
@@ -105,7 +105,7 @@ const Matching = memo((props: MatchingProps) => {
       }))
   }
 
-  const handleChangeAdvanceAnswer = (data) => {
+  const handleChangeFeedback = (data) => {
     setOpenEdit(false)
     setQuestion(
       produce(draft => {
@@ -210,18 +210,18 @@ const Matching = memo((props: MatchingProps) => {
             </TableBody>
           </Table>
         </TableContainer>
-        <ButtonsOutline
+        {/* <ButtonsOutline
           className={classes.moreBtn}
           children="More Option"
           icon={Images.CBTicPlusCircleGreen}
           placementIcon={true}
           onClick={handleAddAnswer}
-        />
-        {openEdit && <PopupEditAnswer
+        /> */}
+        {openEdit && <PopupEditFeedback
           answer={question.answers[answerId]}
           open={openEdit}
           onClickCancel={() => setOpenEdit(false)}
-          onClickSuccess={handleChangeAdvanceAnswer}
+          onClickSuccess={handleChangeFeedback}
         />}
         <MatchingPreview
           open={preview}
