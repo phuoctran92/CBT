@@ -21,6 +21,5 @@ Router.route('/:workspaceDomain')
   .put(checkAuth('ADMIN_WORKSPACE'), checkWorkspace, updateWorkspace)
   .delete(checkAuth('SUPER_ADMIN'), deleteWorkspace)
 
-  //test
 
 module.exports = Router

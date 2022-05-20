@@ -33,13 +33,22 @@ const Page = memo((props: PageProps) => {
         label="Shuffle Question"
       />
       <Grid item md={12}>
-        <Description />
-        <ANewQuestion />
-        <SingleSection />
+        <Description
+          page={pageNumber}
+          index={1}
+        />
+        <ANewQuestion
+          page={pageNumber}
+          index={1}
+        />
+        <SingleSection
+          page={pageNumber}
+          index={1}
+        />
       </Grid>
       <Grid item container justify="flex-end" md={12} >
         <ButtonsOutline
-          children='Add New'
+          children='Add Content'
           className={classes.addNewBtn}
           icon={Images.CBTicPluscircleBlue}
           onClick={() => setOpen(!open)}

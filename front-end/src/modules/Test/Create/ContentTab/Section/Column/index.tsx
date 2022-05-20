@@ -15,12 +15,12 @@ const Column = memo(() => {
   return (
     <Grid container className={classes.container}>
       <Grid item md={12}>
-        <Description />
-        <ANewQuestion />
+        {/* <Description />
+        <ANewQuestion /> */}
       </Grid>
       <Grid item container justify="flex-end" md={12} >
         <ButtonsOutline
-          children='Add New'
+          children='Add Content'
           className={classes.addNewBtn}
           icon={Images.CBTicPluscircleBlue}
           onClick={() => setOpen(!open)}

@@ -7,8 +7,13 @@ import images from 'config/images';
 import { memo, useState } from 'react';
 import useStyles from './styles';
 
+interface ANewQuestionProps {
+  page: number,
+  index: number
+}
 
-const ANewQuestion = memo(() => {
+const ANewQuestion = memo((props: ANewQuestionProps) => {
+  const { page, index } = props
   const classes = useStyles();
   const [isSingle, setIsSignle] = useState(false)
   const [shuffleAnswer, setShuffleAnswer] = useState(false)

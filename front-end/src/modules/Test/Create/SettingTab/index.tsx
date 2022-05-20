@@ -61,9 +61,11 @@ const SettingTab = memo(() => {
             placeholder='Enter Test title here...'
           />
           <InputsRichtext
+            className='description'
             onChange={() => { }}
             name='description'
             title='Description'
+            value=""
           />
         </AccordionDetails>
       </Accordion>

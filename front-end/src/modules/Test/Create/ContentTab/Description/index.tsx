@@ -7,8 +7,13 @@ import images from 'config/images';
 import { memo } from 'react';
 import useStyles from './styles';
 
+interface DescriptionProps {
+  page: number,
+  index: number
+}
 
-const Description = memo(() => {
+const Description = memo((props: DescriptionProps) => {
+  const { page, index } = props
   const classes = useStyles();
   const handleDelete = (e) => {
     e.stopPropagation()
@@ -30,8 +35,10 @@ const Description = memo(() => {
         </AccordionSummary>
         <AccordionDetails className={classes.generalContent}>
           <InputsRichtext
+            className={`description-p${page}-${index}`}
             onChange={() => { }}
             name='description'
+            value=""
           />
         </AccordionDetails>
       </Accordion>

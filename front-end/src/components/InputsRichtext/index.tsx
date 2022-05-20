@@ -1,45 +1,33 @@
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
 import { Typography } from '@material-ui/core';
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import useStyles from './styles';
+import Editor from './Editor'
 interface InputsRichtextProps {
   title?: string,
   placeholder?: string,
   name: string,
-  onChange: Function,
-  defaultValue?: string
+  onChange: any,
+  value: any,
+  className: string
 }
+
 const InputsRichtext = memo((props: InputsRichtextProps) => {
   const classes = useStyles();
-  const { title, onChange, defaultValue } = props;
-
-  //const [addedData, showData] = useState(0);
-  const [addData, setVal] = useState(defaultValue)
-
-  // useEffect(() => {
-  //   if (defaultValue) {
-  //     setVal(defaultValue)
-  //   }
-  // }, [defaultValue])
-
-  const handleChange = (e, editor) => {
-    const data = editor.getData()
-    setVal(data)
-    onChange(data)
-  }
+  const { title, value, onChange, placeholder, className } = props;
 
   return (
     <div className={classes.container}>
       <Typography className={classes.textTitle}>{title}</Typography>
-      <CKEditor
-        editor={ClassicEditor}
-        data={addData}
-        onChange={handleChange}
+      <Editor
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder || ""}
+        className={className}
       />
     </div>
   );
 });
+
 export default InputsRichtext;
 
 

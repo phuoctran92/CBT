@@ -161,10 +161,12 @@ const SelectMany = memo((props: SelectManyProps) => {
       </Grid>
       <Grid item md={12} >
         <InputsRichtext
+          className="question-content"
           onChange={handleChangeQuestionContent}
           name="questionContent"
           title="Question Content"
           placeholder="Insert question content here..."
+          value={question.questionContent}
         />
       </Grid>
       <Grid container >
@@ -186,7 +188,7 @@ const SelectMany = memo((props: SelectManyProps) => {
               {question.answers?.map((row, index) => {
                 return (
                   <TableRow
-                    key={index}
+                    key={`answer-${index}`}
                   >
                     <TableCell align="center">{index}</TableCell>
                     <TableCell className={classes.answerContent} >

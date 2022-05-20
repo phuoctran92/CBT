@@ -1,4 +1,3 @@
-
 export enum KeyTable {
   IND = 'displayOrder',
   Label = 'label',
@@ -11,19 +10,19 @@ export const headerOption = [
   { name: 'LABEL', width: 400, key: KeyTable.Label },
   { name: 'SCORE', width: 80, key: KeyTable.Score },
   { name: 'CORRECT', width: 80, key: KeyTable.IsCorrect },
-]
+];
 
 export interface SelectOneQuestion {
-  questionTitle: string,
-  category: string
-  questionContent: string,
-  answers: SelectOneAnswer[]
+  questionTitle: string;
+  category: string;
+  questionContent: string;
+  answers: SelectOneAnswer[];
 }
 export interface SelectOneAnswer {
-  displayOrder: number,
-  answerContent: string,
-  score: string,
-  penaltyScore: string,
-  isCorrect: boolean,
-  feedback: string
+  displayOrder: number;
+  answerContent: string;
+  score: string;
+  penaltyScore: string;
+  isCorrect: boolean;
+  feedback: string;
 }
