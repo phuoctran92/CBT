@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import { TextField, FormControl } from '@material-ui/core';
-import useStyles from './styles';
+import { FormControl, TextField } from '@material-ui/core';
 import clsx from 'clsx';
+import React from 'react';
+import useStyles from './styles';
 
 interface InputFieldProps {
   defaultValue?: string,
@@ -13,7 +13,7 @@ interface InputFieldProps {
   onChange?: any,
   multiline?: boolean
 }
-const InputField = memo(React.forwardRef((props: InputFieldProps, ref) => {
+const InputField = React.forwardRef((props: InputFieldProps, ref) => {
   const classes = useStyles();
   const {
     defaultValue,
@@ -50,7 +50,7 @@ const InputField = memo(React.forwardRef((props: InputFieldProps, ref) => {
       />
     </FormControl>
   );
-}));
+});
 export default InputField;
 
 

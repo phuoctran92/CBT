@@ -1,6 +1,6 @@
+import { CircularProgress } from '@material-ui/core';
 import React from 'react';
 import useStyles from './styles';
-import { CircularProgress } from '@material-ui/core';
 
 interface ILoadingFullPage {
   isFullPage?: boolean,
@@ -10,7 +10,7 @@ const LoadingFullPageInit: ILoadingFullPage = {
   isFullPage: true,
   isShow: false,
 }
-const LoadingFullPage = React.memo((props: ILoadingFullPage = LoadingFullPageInit) => {
+const LoadingFullPage = (props: ILoadingFullPage = LoadingFullPageInit) => {
   const classes = useStyles();
   if(!props.isShow) return null;
   const classRoot = props.isFullPage ? classes.root :  classes.rootNotFullPage;
@@ -19,6 +19,6 @@ const LoadingFullPage = React.memo((props: ILoadingFullPage = LoadingFullPageIni
       <CircularProgress style={{ color: '#FFD233' }} />
     </div>
   )
-})
+}
 
 export default LoadingFullPage;

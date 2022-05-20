@@ -1,13 +1,11 @@
 import { Grid } from '@material-ui/core';
 import ButtonsOutline from 'components/ButtonsOutline';
 import Images from 'config/images';
-import { memo, useState } from 'react';
-import ANewQuestion from '../../ANewQuestion';
-import Description from '../../Description';
+import { useState } from 'react';
 import SelectContentPopup from '../../SelectContentPopup';
 import useStyles from './styles';
 
-const Column = memo(() => {
+const Column = () => {
 
   const classes = useStyles();
   const [open, setOpen] = useState(false)
@@ -32,6 +30,6 @@ const Column = memo(() => {
       </Grid>
     </Grid>
   );
-})
+}
 
 export default Column

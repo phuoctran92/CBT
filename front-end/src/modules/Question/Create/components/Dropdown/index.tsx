@@ -1,8 +1,7 @@
-import { Grid } from "@material-ui/core"
-import { memo } from "react"
-import useStyles from "./styles"
+import { Grid } from "@material-ui/core";
+import useStyles from "./styles";
 
-const Dropdown = memo(() => {
+const Dropdown = () => {
   const classes = useStyles()
 
   return (
@@ -10,6 +9,6 @@ const Dropdown = memo(() => {
       Dropdown
     </Grid>
   )
-});
+};
 
 export default Dropdown

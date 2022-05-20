@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import AnswerItem from '../AnswerItem';
 import useStyles from './styles';

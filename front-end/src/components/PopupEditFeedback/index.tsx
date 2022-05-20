@@ -1,12 +1,11 @@
 import { Dialog, Grid } from '@material-ui/core';
 import Buttons from 'components/Buttons';
 import ButtonsOutline from 'components/ButtonsOutline';
-import Inputs from 'components/Inputs';
 import InputsRichtext from 'components/InputsRichtext';
 import Images from 'config/images';
 import produce from "immer";
 import { SelectOneAnswer } from 'modules/Question/Create/components/SelectOne/models';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import useStyles from './styles';
 //popupDeleteProps
 interface PopupEditFeedbackProps {
@@ -16,7 +15,7 @@ interface PopupEditFeedbackProps {
   answer: SelectOneAnswer
 }
 
-const PopupEditFeedback = memo((props: PopupEditFeedbackProps) => {
+const PopupEditFeedback = (props: PopupEditFeedbackProps) => {
   const { onClickSuccess, onClickCancel, open, answer } = props;
   const classes = useStyles();
   const [answerContent, setAnswerContent] = useState<SelectOneAnswer>(answer)
@@ -75,7 +74,7 @@ const PopupEditFeedback = memo((props: PopupEditFeedbackProps) => {
       </Grid>
     </Dialog>
   );
-});
+};
 export default PopupEditFeedback;
 
 

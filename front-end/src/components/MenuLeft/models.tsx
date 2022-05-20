@@ -7,16 +7,16 @@ import { ReactComponent as CBTicUsers } from 'asset/img/cbt-ic-users.svg';
 import { routes } from "routers/routes";
 
 export const navs = [
-  {
-    title: "My Workspace",
-    icon: <SvgIcon component={CBTicHouse} />,
-    path: routes.workspace,
-  },
-  {
-    title: "My Users",
-    icon: <SvgIcon component={CBTicUsers} viewBox="0 0 24 25" />,
-    path: routes.user,
-  },
+  // {
+  //   title: "My Workspace",
+  //   icon: <SvgIcon component={CBTicHouse} />,
+  //   path: routes.workspace,
+  // },
+  // {
+  //   title: "My Users",
+  //   icon: <SvgIcon component={CBTicUsers} viewBox="0 0 24 25" />,
+  //   path: routes.user,
+  // },
   {
     title: "My Questions",
     icon: <SvgIcon component={CBTicFileText} viewBox="0 0 24 25" />,
@@ -27,10 +27,10 @@ export const navs = [
     icon: <SvgIcon component={CBTicStack} viewBox="0 0 24 25" />,
     path: routes.test.default,
   },
-  {
-    title: "My Classes",
-    icon: <SvgIcon component={CBTicGrid4} viewBox="0 0 24 25" />,
-    path: routes.class.default,
-  }
+  // {
+  //   title: "My Classes",
+  //   icon: <SvgIcon component={CBTicGrid4} viewBox="0 0 24 25" />,
+  //   path: routes.class.default,
+  // }
 ];
 

@@ -1,7 +1,6 @@
-import { memo } from 'react';
 import ReactQuill from 'react-quill';
-import EditorToolbar, { redoChange, undoChange, formats } from './EditorToolbar';
 import 'react-quill/dist/quill.snow.css';
+import EditorToolbar, { formats, redoChange, undoChange } from './EditorToolbar';
 import './styles.css';
 
 interface EditorProps {
@@ -11,7 +10,7 @@ interface EditorProps {
   className: string
 }
 
-export const Editor = memo((props: EditorProps) => {
+export const Editor = (props: EditorProps) => {
   const { onChange, value, placeholder, className } = props
 
   const handleChange = (value) => {
@@ -39,6 +38,6 @@ export const Editor = memo((props: EditorProps) => {
       />
     </div>
   );
-});
+};
 
 export default Editor;

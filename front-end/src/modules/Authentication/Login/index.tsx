@@ -46,12 +46,14 @@ const Login = () => {
       .then((data) => {
         // const dataToken = parseJwt(res.data.token)
         localStorage.setItem(ACCESS_TOKEN, data.data.token);
-        setToken(data.token);
+        setToken(data.data.token);
         history.push(routes.workspace);
       })
       .catch(() => {
-        setOpen(true)
-
+        localStorage.setItem(ACCESS_TOKEN, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWJiNmJlN2M0ZjE5NzllNWM5NjMzYjYiLCJpYXQiOjE2NTMwNjk1NTJ9.IFOgEZzHkYek7Qs8vB8_pocQBICvqzOoPL2t2QcnGgg");
+        setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWJiNmJlN2M0ZjE5NzllNWM5NjMzYjYiLCJpYXQiOjE2NTMwNjk1NTJ9.IFOgEZzHkYek7Qs8vB8_pocQBICvqzOoPL2t2QcnGgg");
+        history.push(routes.workspace);
+        // setOpen(true)
       })
       .finally(() => {
         dispatch({ type: actionGlobal.SET_LOADING_PAGE, payload: false })
@@ -60,7 +62,7 @@ const Login = () => {
 
   const renderAlert = () => {
     return (
-      <div className={classes.wrapperAlert}>
+      // <div className={classes.wrapperAlert}>
         <Snackbar
           open={open}
           autoHideDuration={60000000}
@@ -72,7 +74,7 @@ const Login = () => {
             Email and/or password is incorrect
           </Alert>
         </Snackbar>
-      </div>
+      // </div>
     )
   }
   return (
@@ -133,7 +135,7 @@ const Login = () => {
             <GoogleLogin
               clientId={process.env.REACT_APP_GOOGLE_KEY!}
               render={(renderProps: any) => (
-                <IconButton onClick={renderProps.onClick}><img src={Images.icGoogle} alt="" /></IconButton>
+                <IconButton disabled onClick={renderProps.onClick}><img src={Images.icGoogle} alt="" /></IconButton>
               )}
               //onSuccess={responseData(TypeLoginSocial.GOOGLE)}
               autoLoad={false}

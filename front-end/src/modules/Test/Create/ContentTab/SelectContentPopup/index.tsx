@@ -12,14 +12,14 @@ import FindInPageOutlinedIcon from '@material-ui/icons/FindInPageOutlined';
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import LibraryBooksOutlinedIcon from '@material-ui/icons/LibraryBooksOutlined';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import useStyles from './styles';
 interface SelectContentPopupProps {
   open: boolean,
   onClose: Function
 }
 
-const SelectContentPopup = memo((props: SelectContentPopupProps) => {
+const SelectContentPopup = (props: SelectContentPopupProps) => {
 
   const { open, onClose } = props
   const classes = useStyles();
@@ -86,6 +86,6 @@ const SelectContentPopup = memo((props: SelectContentPopupProps) => {
       </List>
     </Dialog>
   );
-})
+}
 
 export default SelectContentPopup

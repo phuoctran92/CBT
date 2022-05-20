@@ -2,7 +2,6 @@ import { Box, Dialog, DialogContent, DialogContentText, DialogTitle, Grid } from
 import Buttons from 'components/Buttons';
 import ButtonsOutline from 'components/ButtonsOutline';
 import Images from 'config/images';
-import { memo } from 'react';
 import useStyles from './styles';
 
 //popupDeleteProps
@@ -16,7 +15,7 @@ interface popupConfirmProps {
   type?: string,
 }
 
-const PopupConfirm = memo((props: popupConfirmProps) => {
+const PopupConfirm = (props: popupConfirmProps) => {
   const { onClickSuccess, onClickCancel, title, text, open, className } = props;
   const classes = useStyles();
 
@@ -57,7 +56,7 @@ const PopupConfirm = memo((props: popupConfirmProps) => {
       </Grid>
     </Dialog>
   );
-});
+};
 export default PopupConfirm;
 
 

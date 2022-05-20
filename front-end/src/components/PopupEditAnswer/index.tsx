@@ -6,7 +6,7 @@ import InputsRichtext from 'components/InputsRichtext';
 import Images from 'config/images';
 import produce from "immer";
 import { SelectOneAnswer } from 'modules/Question/Create/components/SelectOne/models';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import useStyles from './styles';
 //popupDeleteProps
 interface PopupEditAnswerProps {
@@ -16,7 +16,7 @@ interface PopupEditAnswerProps {
   answer: SelectOneAnswer
 }
 
-const PopupEditAnswer = memo((props: PopupEditAnswerProps) => {
+const PopupEditAnswer = (props: PopupEditAnswerProps) => {
   const { onClickSuccess, onClickCancel, open, answer } = props;
   const classes = useStyles();
   const [answerContent, setAnswerContent] = useState<SelectOneAnswer>(answer)
@@ -121,7 +121,7 @@ const PopupEditAnswer = memo((props: PopupEditAnswerProps) => {
       </Grid>
     </Dialog>
   );
-});
+};
 export default PopupEditAnswer;
 
 

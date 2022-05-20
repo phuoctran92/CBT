@@ -4,7 +4,7 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import QuestionSelectForm from 'components/QuestionSelectForm';
 import images from 'config/images';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import useStyles from './styles';
 
 interface ANewQuestionProps {
@@ -12,8 +12,8 @@ interface ANewQuestionProps {
   index: number
 }
 
-const ANewQuestion = memo((props: ANewQuestionProps) => {
-  const { page, index } = props
+const ANewQuestion = (props: ANewQuestionProps) => {
+  // const { page, index } = props
   const classes = useStyles();
   const [isSingle, setIsSignle] = useState(false)
   const [shuffleAnswer, setShuffleAnswer] = useState(false)
@@ -75,6 +75,6 @@ const ANewQuestion = memo((props: ANewQuestionProps) => {
       </Accordion>
     </div>
   );
-})
+}
 
 export default ANewQuestion

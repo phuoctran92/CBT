@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
 interface IRoutes{
   component: any,
@@ -9,7 +9,7 @@ interface IRoutes{
   exact: boolean
 }
 
-const PermissionRoute = React.memo(({ component, isPermission, urlRedirect, ...rest }: IRoutes) => {
+const PermissionRoute = ({ component, isPermission, urlRedirect, ...rest }: IRoutes) => {
   return (
     <Route
       {...rest}
@@ -22,6 +22,6 @@ const PermissionRoute = React.memo(({ component, isPermission, urlRedirect, ...r
       }
     />
   )
-});
+};
 
 export default PermissionRoute;

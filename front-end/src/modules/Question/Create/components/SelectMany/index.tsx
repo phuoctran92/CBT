@@ -10,7 +10,7 @@ import InputsRichtext from "components/InputsRichtext";
 import PopupEditAnswer from "components/PopupEditAnswer";
 import Images from 'config/images';
 import produce from "immer";
-import { memo, useState } from "react";
+import { useState } from "react";
 import { headerOption, SelectManyQuestion } from './models';
 import SelectManyPreview from "./SelectManyPreview";
 import useStyles from "./styles";
@@ -25,7 +25,7 @@ interface SelectManyProps {
   onClosePreview: Function
 }
 
-const SelectMany = memo((props: SelectManyProps) => {
+const SelectMany = (props: SelectManyProps) => {
   const { preview, onClosePreview } = props
   const classes = useStyles()
   const [openEdit, setOpenEdit] = useState(false)
@@ -254,6 +254,6 @@ const SelectMany = memo((props: SelectManyProps) => {
       </Grid>
     </Grid>
   )
-});
+};
 
 export default SelectMany

@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DateTimePickerCustom from 'components/DateTimePickerCustom';
 import Inputs from 'components/Inputs';
 import InputsRichtext from 'components/InputsRichtext';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import Select from 'react-select';
 import { AfterSubmitTestOptionDefault, AfterTestClosedOptionDefault, WhenDoingTestOptionDefault } from './models';
 import useStyles, { customSelectStyle } from './styles';
@@ -16,7 +16,7 @@ const scoreMethodOptions = [
   { value: "averageScore", label: 'Average Score' },
 ]
 
-const SettingTab = memo(() => {
+const SettingTab = () => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState<string | false>(false);
 
@@ -215,6 +215,6 @@ const SettingTab = memo(() => {
       </Accordion>
     </div>
   );
-})
+}
 
 export default SettingTab

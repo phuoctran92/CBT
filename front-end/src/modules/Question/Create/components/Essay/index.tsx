@@ -2,10 +2,9 @@ import { Grid } from "@material-ui/core";
 import CategoriesSelect from "components/CategoriesSelect";
 import Inputs from "components/Inputs";
 import InputsRichtext from "components/InputsRichtext";
-import { memo } from "react";
 import useStyles from "./styles";
 
-const Essay = memo(() => {
+const Essay = () => {
   const classes = useStyles()
   const categoryOptions = [
     { value: "ielts", label: "IELTS" },
@@ -60,6 +59,6 @@ const Essay = memo(() => {
       </Grid>
     </Grid>
   )
-});
+};
 
 export default Essay

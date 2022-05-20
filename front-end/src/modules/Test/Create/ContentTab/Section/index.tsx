@@ -3,7 +3,7 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import images from 'config/images';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import Column from './Column';
 import useStyles from './styles';
 
@@ -12,8 +12,8 @@ interface SingleSectionProps {
   index: number
 }
 
-const SingleSection = memo((props: SingleSectionProps) => {
-  const { page, index } = props
+const SingleSection = (props: SingleSectionProps) => {
+  // const { page, index } = props
   const classes = useStyles();
   const [shuffleQuestion, setShuffleQuestion] = useState(false)
 
@@ -55,6 +55,6 @@ const SingleSection = memo((props: SingleSectionProps) => {
       </Accordion>
     </div>
   );
-})
+}
 
 export default SingleSection

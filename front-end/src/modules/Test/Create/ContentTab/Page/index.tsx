@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel, Grid } from '@material-ui/core';
 import ButtonsOutline from 'components/ButtonsOutline';
 import Images from 'config/images';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import ANewQuestion from '../ANewQuestion';
 import Description from '../Description';
 import SingleSection from '../Section';
@@ -12,7 +12,7 @@ interface PageProps {
   pageNumber: number
 }
 
-const Page = memo((props: PageProps) => {
+const Page = (props: PageProps) => {
   const { pageNumber } = props
   const classes = useStyles();
   const [shuffle, setShuffle] = useState(false)
@@ -60,6 +60,6 @@ const Page = memo((props: PageProps) => {
       </Grid>
     </Grid>
   );
-})
+}
 
 export default Page

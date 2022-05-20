@@ -1,6 +1,6 @@
 import { Checkbox, Collapse, Dialog, FormControl, FormControlLabel, RadioGroup } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { memo, useState } from "react";
+import { useState } from "react";
 import { SelectManyQuestion } from '../models';
 import useStyles from "./styles";
 
@@ -10,7 +10,7 @@ interface SelectManyPreviewProps {
   onClose: Function
 }
 
-const SelectManyPreview = memo((props: SelectManyPreviewProps) => {
+const SelectManyPreview = (props: SelectManyPreviewProps) => {
   const { open, question, onClose } = props
   const classes = useStyles()
   const [showFeedback, setShowFeedback] = useState(false)
@@ -65,6 +65,6 @@ const SelectManyPreview = memo((props: SelectManyPreviewProps) => {
       </div>
     </Dialog>
   )
-});
+};
 
 export default SelectManyPreview

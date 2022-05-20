@@ -4,7 +4,6 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import InputsRichtext from 'components/InputsRichtext';
 import images from 'config/images';
-import { memo } from 'react';
 import useStyles from './styles';
 
 interface DescriptionProps {
@@ -12,7 +11,7 @@ interface DescriptionProps {
   index: number
 }
 
-const Description = memo((props: DescriptionProps) => {
+const Description = (props: DescriptionProps) => {
   const { page, index } = props
   const classes = useStyles();
   const handleDelete = (e) => {
@@ -44,6 +43,6 @@ const Description = memo((props: DescriptionProps) => {
       </Accordion>
     </div>
   );
-})
+}
 
 export default Description

@@ -1,5 +1,5 @@
 import LoadingFullPage from 'components/LoadingFullPage'
-import { lazy, memo, Suspense } from 'react'
+import { lazy, Suspense } from 'react'
 import { Redirect, Switch } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import { routes } from './routes'
@@ -11,7 +11,7 @@ interface IRoutes {
   isLoggedIn: boolean
 }
 
-const Routes = memo((props: IRoutes) => {
+const Routes = (props: IRoutes) => {
 
   return (
     <Suspense fallback={<LoadingFullPage isShow={true} />}>
@@ -32,6 +32,6 @@ const Routes = memo((props: IRoutes) => {
         />
       </Switch>
     </Suspense>)
-})
+}
 
 export default Routes

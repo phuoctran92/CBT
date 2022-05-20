@@ -1,9 +1,9 @@
-import React, { useState, memo } from 'react';
-import { TextField, Typography, FormControl, InputAdornment, IconButton } from '@material-ui/core';
+import { FormControl, IconButton, InputAdornment, TextField, Typography } from '@material-ui/core';
 import { Visibility } from '@material-ui/icons/';
-import Images from 'config/images';
-import useStyles from './styles';
 import clsx from 'clsx';
+import Images from 'config/images';
+import React, { useState } from 'react';
+import useStyles from './styles';
 
 interface InputsProps {
   title?: string,
@@ -27,7 +27,7 @@ interface InputsProps {
   endIcon?: string,
   onEndIconClick?: () => void
 }
-const Inputs = memo(React.forwardRef((props: InputsProps, ref) => {
+const Inputs = React.forwardRef((props: InputsProps, ref) => {
   const classes = useStyles();
   const [toggleEyes, setToggleEyes] = useState(false);
   const { title,
@@ -116,7 +116,7 @@ const Inputs = memo(React.forwardRef((props: InputsProps, ref) => {
       {errorMessage && <Typography classes={{ root: classes.textError }}>{errorMessage}</Typography>}
     </FormControl>
   );
-}));
+});
 export default Inputs;
 
 

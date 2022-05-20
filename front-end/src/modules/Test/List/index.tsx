@@ -15,7 +15,7 @@ import TestLabelStatus from "components/TestLabelStatus"
 import Images from "config/images"
 import { checkTypeSort, getNewSort } from 'helpers'
 import * as _ from 'lodash'
-import { memo, useState } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom"
 import { routes } from 'routers/routes'
@@ -25,7 +25,7 @@ import * as actionsQuestion from 'store/reducers/question/actionTypes'
 import { dataList, headerOption } from './models'
 import useStyles from "./styles"
 
-const TestList = memo(() => {
+const TestList = () => {
   const [deleteOpen, setDeleteOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
   const classes = useStyles()
@@ -279,6 +279,6 @@ const TestList = memo(() => {
       />
     </Grid>
   )
-});
+};
 
 export default TestList

@@ -1,6 +1,6 @@
 import { Collapse, Dialog, FormControl, FormControlLabel, Radio, RadioGroup } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { memo, useState } from "react";
+import { useState } from "react";
 import { SelectOneQuestion } from '../models';
 import useStyles from "./styles";
 
@@ -10,7 +10,7 @@ interface SelectOnePreviewProps {
   onClose: Function
 }
 
-const SelectOnePreview = memo((props: SelectOnePreviewProps) => {
+const SelectOnePreview = (props: SelectOnePreviewProps) => {
   const { open, question, onClose } = props
   const classes = useStyles()
   const [showFeedback, setShowFeedback] = useState(false)
@@ -65,6 +65,6 @@ const SelectOnePreview = memo((props: SelectOnePreviewProps) => {
       </div>
     </Dialog>
   )
-});
+};
 
 export default SelectOnePreview

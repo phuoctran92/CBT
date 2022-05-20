@@ -1,7 +1,7 @@
-import React, { memo } from "react";
 import { Button } from "@material-ui/core";
-import useStyles from "./styles";
 import clsx from "clsx";
+import React from "react";
+import useStyles from "./styles";
 
 interface ButtonsOutlineProps {
   children?: string;
@@ -13,7 +13,7 @@ interface ButtonsOutlineProps {
   className?: any
 }
 
-const ButtonsOutline = memo((props: ButtonsOutlineProps) => {
+const ButtonsOutline = (props: ButtonsOutlineProps) => {
   const classes = useStyles();
   const { className, placementIcon, icon, children, onClick, ...rest } = props;
   return (
@@ -28,5 +28,5 @@ const ButtonsOutline = memo((props: ButtonsOutlineProps) => {
       {children}
     </Button>
   );
-});
+};
 export default ButtonsOutline;
