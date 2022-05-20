@@ -1,9 +1,8 @@
 import { Grid } from '@material-ui/core';
-import { memo } from 'react';
-import useStyles from './styles';
 import Page from './Page';
+import useStyles from './styles';
 
-const ContentTab = memo(() => {
+const ContentTab = () => {
   const classes = useStyles();
 
   return (
@@ -19,6 +18,6 @@ const ContentTab = memo(() => {
 
     </Grid>
   );
-})
+}
 
 export default ContentTab

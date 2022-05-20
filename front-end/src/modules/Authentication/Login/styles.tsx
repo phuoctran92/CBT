@@ -13,6 +13,7 @@ export default makeStyles(() =>
       display: "flex",
     },
     wrapperAlert: {
+      position: 'absolute',
       width: '100%',
       '& .MuiSnackbar-anchorOriginTopCenter': {
         top: '80px !important'

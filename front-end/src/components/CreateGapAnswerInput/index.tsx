@@ -1,8 +1,7 @@
 import { Typography } from '@material-ui/core';
-import { memo } from 'react';
+import { MatchingAnswer } from "modules/Question/Create/components/Matching/models";
+import Editor from './Editor';
 import useStyles from './styles';
-import Editor from './Editor'
-import { MatchingAnswer } from "modules/Question/Create/components/Matching/models"
 
 interface CreateGapAnswerInputProps {
   title?: string,
@@ -15,7 +14,7 @@ interface CreateGapAnswerInputProps {
   onChangeAnswer: Function
 }
 
-const CreateGapAnswerInput = memo((props: CreateGapAnswerInputProps) => {
+const CreateGapAnswerInput = (props: CreateGapAnswerInputProps) => {
   const classes = useStyles();
   const { title, question, onChangeQuestion, placeholder, className, answer, onChangeAnswer } = props;
 
@@ -32,7 +31,7 @@ const CreateGapAnswerInput = memo((props: CreateGapAnswerInputProps) => {
       />
     </div>
   );
-});
+};
 
 export default CreateGapAnswerInput;
 

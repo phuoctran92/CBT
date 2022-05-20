@@ -1,20 +1,17 @@
 import {
-  Checkbox, Chip, Grid, Table, TableBody, TableCell, TableContainer, TableHead,
+  Checkbox, Grid, Table, TableBody, TableCell, TableContainer, TableHead,
   TableRow, TextField
 } from "@material-ui/core";
 import ButtonAction from "components/ButtonAction";
-import ButtonsOutline from "components/ButtonsOutline";
 import CategoriesSelect from "components/CategoriesSelect";
-import Inputs from "components/Inputs";
 import CreateGapAnswerInput from "components/CreateGapAnswerInput";
-import PopupEditAnswer from "components/PopupEditAnswer";
-import Images from 'config/images';
-import produce from "immer";
-import { memo, useState } from "react";
-import { headerOption, MatchingQuestion, MatchingAnswer } from './models';
-import MatchingPreview from "./MatchingPreview";
-import useStyles from "./styles";
+import Inputs from "components/Inputs";
 import PopupEditFeedback from "components/PopupEditFeedback";
+import produce from "immer";
+import { useState } from "react";
+import MatchingPreview from "./MatchingPreview";
+import { headerOption, MatchingQuestion } from './models';
+import useStyles from "./styles";
 
 const categoryOptions = [
   { value: "ielts", label: "IELTS" },
@@ -26,7 +23,7 @@ interface MatchingProps {
   onClosePreview: Function
 }
 
-const Matching = memo((props: MatchingProps) => {
+const Matching = (props: MatchingProps) => {
   const { preview, onClosePreview } = props
   const classes = useStyles()
   const [openEdit, setOpenEdit] = useState(false)
@@ -231,6 +228,6 @@ const Matching = memo((props: MatchingProps) => {
       </Grid>
     </Grid>
   )
-});
+};
 
 export default Matching

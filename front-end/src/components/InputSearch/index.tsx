@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
-import { TextField, FormControl, InputAdornment } from '@material-ui/core';
-import Images from 'config/images';
-import useStyles from './styles';
+import { FormControl, InputAdornment, TextField } from '@material-ui/core';
 import clsx from 'clsx';
+import Images from 'config/images';
+import React from 'react';
+import useStyles from './styles';
 
 interface InputSearchProps {
   type?: string,
@@ -18,7 +18,7 @@ interface InputSearchProps {
   autoComplete?: string,
   search?: boolean,
 }
-const InputSearch = memo(React.forwardRef((props: InputSearchProps, ref) => {
+const InputSearch = React.forwardRef((props: InputSearchProps, ref) => {
   const classes = useStyles();
   const {
     type,
@@ -66,7 +66,7 @@ const InputSearch = memo(React.forwardRef((props: InputSearchProps, ref) => {
       />
     </FormControl>
   );
-}));
+});
 export default InputSearch;
 
 

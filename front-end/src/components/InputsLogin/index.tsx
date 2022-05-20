@@ -1,9 +1,9 @@
-import React, { useState, memo } from 'react';
-import { TextField, Typography, FormControl, InputAdornment, IconButton } from '@material-ui/core';
+import { FormControl, IconButton, InputAdornment, TextField, Typography } from '@material-ui/core';
 import { Visibility } from '@material-ui/icons/';
-import Images from 'config/images';
-import useStyles from './styles';
 import clsx from 'clsx';
+import Images from 'config/images';
+import React, { useState } from 'react';
+import useStyles from './styles';
 
 interface InputsLoginProps {
   title?: string,
@@ -29,7 +29,7 @@ interface InputsLoginProps {
   rows?: number,
   onEndIconClick?: () => void
 }
-const InputsLogin = memo((props: InputsLoginProps) => {
+const InputsLogin = (props: InputsLoginProps) => {
   const classes = useStyles();
   const [toggleEyes, setToggleEyes] = useState(false);
   const { title,
@@ -121,7 +121,7 @@ const InputsLogin = memo((props: InputsLoginProps) => {
       {errorMessage && <Typography classes={{ root: classes.textError }}>{errorMessage}</Typography>}
     </FormControl>
   );
-});
+};
 export default InputsLogin;
 
 

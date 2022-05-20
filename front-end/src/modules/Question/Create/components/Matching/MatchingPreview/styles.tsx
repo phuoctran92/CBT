@@ -32,11 +32,19 @@ export default makeStyles(() =>
       }
     },
     feedback: {
-      '& .MuiAlert-root': {
-        padding: '0px 10px'
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      "& > span": {
+        borderRadius: 5,
+        margin: 5,
+        padding: 5,
+        boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+        display: "inline-flex",
+        overflowWrap: "anywhere"
       },
-      '& .MuiAlert-icon': {
-        padding: '20px 0px'
+      "& > div": {
+        marginLeft: 10
       }
     },
     feedbackBtn: {

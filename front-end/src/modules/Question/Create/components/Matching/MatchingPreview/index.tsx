@@ -1,6 +1,5 @@
 import { Dialog, Grid } from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
-import React, { memo, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import JsxParser from 'react-jsx-parser';
 import { MatchingQuestion } from '../models';
@@ -25,7 +24,7 @@ const addToList = (list, index, element) => {
   return result;
 };
 
-const MatchingPreview = memo((props: MatchingPreviewProps) => {
+const MatchingPreview = (props: MatchingPreviewProps) => {
   const { open, question, onClose } = props
   const classes = useStyles()
   const [showFeedback, setShowFeedback] = useState(false)
@@ -118,14 +117,14 @@ const MatchingPreview = memo((props: MatchingPreviewProps) => {
         </DragDropContext>
         {
           showFeedback && question.answers.map(answer => (
-            <Alert severity={"success"}>
-              <div dangerouslySetInnerHTML={{ __html: answer.feedback }}></div>
-            </Alert>
+            <div className={classes.feedback}>
+              <span>{answer.answerContent}</span><div dangerouslySetInnerHTML={{ __html: answer.feedback }}></div>
+            </div>
           ))
         }
       </div>
     </Dialog >
   )
-});
+};
 
 export default MatchingPreview

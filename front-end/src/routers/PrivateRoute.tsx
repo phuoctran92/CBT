@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
 interface IRoutes{
   component: any,
@@ -9,7 +9,7 @@ interface IRoutes{
   exact?: boolean
 }
 
-const PrivateRoute = React.memo(({ component, isLoggedIn, urlRedirect, ...rest }: IRoutes) => (
+const PrivateRoute = ({ component, isLoggedIn, urlRedirect, ...rest }: IRoutes) => (
   <Route
     {...rest}
     render={(props: any) =>
@@ -20,6 +20,6 @@ const PrivateRoute = React.memo(({ component, isLoggedIn, urlRedirect, ...rest }
       )
     }
   />
-));
+);
 
 export default PrivateRoute;

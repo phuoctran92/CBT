@@ -1,9 +1,8 @@
-import { memo } from 'react';
-import useStyles from './styles'
 import { IconButton, MenuItem, Select } from '@material-ui/core';
-import Images from 'config/images';
 import { usePagination } from '@material-ui/lab';
 import clsx from 'clsx';
+import Images from 'config/images';
+import useStyles from './styles';
 interface PaginationProps {
   total: number,
   size: number,
@@ -13,7 +12,7 @@ interface PaginationProps {
 }
 
 
-const Paginations = memo((props: PaginationProps) => {
+const Paginations = (props: PaginationProps) => {
   const { total, currentPage, size } = props;
 
   const classes = useStyles();
@@ -96,7 +95,7 @@ const Paginations = memo((props: PaginationProps) => {
       </Select>
     </nav>
   );
-});
+};
 export default Paginations;
 
 

@@ -9,9 +9,9 @@ import BreadcrumbsCustom from "components/BreadcrumbsCustom";
 import Buttons from "components/Buttons";
 import Images from "config/images";
 import PropTypes from 'prop-types';
-import { memo, useState } from "react";
-import SettingTab from "./SettingTab";
+import { useState } from "react";
 import ContentTab from "./ContentTab";
+import SettingTab from "./SettingTab";
 import useStyles, { ColorlibConnector, useColorlibStepIconStyles } from "./styles";
 
 const ColorlibStepIcon = (props) => {
@@ -69,7 +69,7 @@ const getStepContent = (step) => {
   }
 }
 
-const CreateTest = memo(() => {
+const CreateTest = () => {
   const classes = useStyles()
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
@@ -146,6 +146,6 @@ const CreateTest = memo(() => {
       </Grid>
     </Grid>
   )
-});
+};
 
 export default CreateTest

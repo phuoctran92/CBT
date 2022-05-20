@@ -5,7 +5,8 @@ import BreadcrumbsCustom from "components/BreadcrumbsCustom"
 import Buttons from "components/Buttons"
 import QuestionTypeSelect from "components/QuestionTypeSelect"
 import Images from "config/images"
-import { memo, useState } from "react"
+import { useState } from "react"
+import { FormProvider, useForm } from 'react-hook-form'
 import Dropdown from './components/Dropdown'
 import Essay from './components/Essay'
 import FillInGaps from './components/FillInGaps'
@@ -13,9 +14,8 @@ import Matching from './components/Matching'
 import SelectMany from './components/SelectMany'
 import SelectOne from './components/SelectOne'
 import useStyles from "./styles"
-import { FormProvider, useForm } from 'react-hook-form';
 
-const CreateQuestion = memo(() => {
+const CreateQuestion = () => {
   const methods = useForm({
     defaultValues: {
       questionTitle: '',
@@ -126,6 +126,6 @@ const CreateQuestion = memo(() => {
       </FormProvider>
     </Grid>
   )
-});
+};
 
 export default CreateQuestion

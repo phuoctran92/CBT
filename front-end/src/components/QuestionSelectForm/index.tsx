@@ -6,7 +6,7 @@ import FillInGaps from 'modules/Question/Create/components/FillInGaps';
 import Matching from 'modules/Question/Create/components/Matching';
 import SelectMany from 'modules/Question/Create/components/SelectMany';
 import SelectOne from 'modules/Question/Create/components/SelectOne';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import Select, { components } from "react-select";
 import useStyles, { customSelectStyle } from './styles';
 
@@ -77,7 +77,7 @@ const renderQuestion = (type: number) => {
       return null;
   }
 }
-const QuestionSelectForm = memo(() => {
+const QuestionSelectForm = () => {
   const classes = useStyles();
   const [type, setType] = useState(0)
 
@@ -106,6 +106,6 @@ const QuestionSelectForm = memo(() => {
 
     </Grid>
   )
-});
+};
 
 export default QuestionSelectForm;

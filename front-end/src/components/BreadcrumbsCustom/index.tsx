@@ -1,10 +1,8 @@
-import { memo } from "react";
 import { Breadcrumbs, Divider, IconButton } from "@material-ui/core";
-import useStyles from "./styles";
-import { Link as RouterLink } from "react-router-dom";
-import { Route } from "react-router-dom";
-import Images from "config/images";
 import clsx from "clsx";
+import Images from "config/images";
+import { Link as RouterLink, Route } from "react-router-dom";
+import useStyles from "./styles";
 interface BreadcrumbsCustomProps {
   name: string;
   icon: string;
@@ -15,11 +13,11 @@ interface BreadcrumbsCustomProps {
   className?: any,
 }
 
-const Fragment = memo((props: { children: any }) => {
+const Fragment = (props: { children: any }) => {
   return (<>{props.children}</>)
-})
+}
 
-const BreadcrumbsCustom = memo((props: BreadcrumbsCustomProps) => {
+const BreadcrumbsCustom = (props: BreadcrumbsCustomProps) => {
   const classes = useStyles();
   const { className, name, icon } = props;
   const getBackRoute = (link1?: string, link2?: string, link3?: string, index?: number) => {
@@ -80,6 +78,6 @@ const BreadcrumbsCustom = memo((props: BreadcrumbsCustomProps) => {
       }}
     </Route>
   );
-});
+};
 
 export default BreadcrumbsCustom;

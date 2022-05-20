@@ -1,7 +1,7 @@
-import React, { memo } from "react";
 import { Button } from "@material-ui/core";
-import useStyles from "./styles";
 import clsx from "clsx";
+import React from "react";
+import useStyles from "./styles";
 
 interface ButtonsProps {
   children?: string;
@@ -13,7 +13,7 @@ interface ButtonsProps {
   className?: any
 }
 
-const Buttons = memo((props: ButtonsProps) => {
+const Buttons = (props: ButtonsProps) => {
   const classes = useStyles();
   const { className, placementIcon, icon, children, onClick, ...rest } = props;
   return (
@@ -28,5 +28,5 @@ const Buttons = memo((props: ButtonsProps) => {
       {children}
     </Button>
   );
-});
+};
 export default Buttons;

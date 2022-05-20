@@ -1,4 +1,3 @@
-import { memo } from "react";
 import useStyles from "./styles";
 
 interface ReactQuillCustomProps {
@@ -6,7 +5,7 @@ interface ReactQuillCustomProps {
   onChange?: any,
 }
 
-const ReactQuillCustom = memo((props: ReactQuillCustomProps) => {
+const ReactQuillCustom = (props: ReactQuillCustomProps) => {
 
   const { onChange, defaultValue } = props;
 
@@ -17,5 +16,5 @@ const ReactQuillCustom = memo((props: ReactQuillCustomProps) => {
     <>
     </>
   );
-});
+};
 export default ReactQuillCustom;

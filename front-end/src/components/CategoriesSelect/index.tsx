@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@material-ui/core';
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
 import useStyles, { customSelectStyle } from './styles';
 interface CategoriesSelectProps {
@@ -10,7 +10,7 @@ interface CategoriesSelectProps {
   onChange: Function,
 }
 
-const CategoriesSelect = memo(React.forwardRef((props: CategoriesSelectProps, ref) => {
+const CategoriesSelect = React.forwardRef((props: CategoriesSelectProps, ref) => {
   const { options, name, placeholder, onChange } = props
   const classes = useStyles();
   const [selectedOption, setSelectedOption] = useState<{ value: any; label: string; }[]>([])
@@ -53,7 +53,7 @@ const CategoriesSelect = memo(React.forwardRef((props: CategoriesSelectProps, re
       />
     </Grid>
   );
-}));
+});
 export default CategoriesSelect;
 
 

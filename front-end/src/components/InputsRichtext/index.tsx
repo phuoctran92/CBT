@@ -1,7 +1,6 @@
 import { Typography } from '@material-ui/core';
-import { memo } from 'react';
+import Editor from './Editor';
 import useStyles from './styles';
-import Editor from './Editor'
 interface InputsRichtextProps {
   title?: string,
   placeholder?: string,
@@ -11,7 +10,7 @@ interface InputsRichtextProps {
   className: string
 }
 
-const InputsRichtext = memo((props: InputsRichtextProps) => {
+const InputsRichtext = (props: InputsRichtextProps) => {
   const classes = useStyles();
   const { title, value, onChange, placeholder, className } = props;
 
@@ -26,7 +25,7 @@ const InputsRichtext = memo((props: InputsRichtextProps) => {
       />
     </div>
   );
-});
+};
 
 export default InputsRichtext;
 

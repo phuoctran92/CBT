@@ -1,13 +1,12 @@
-import { memo } from "react";
-import useStyles from "./styles";
 import clsx from "clsx";
-import { QuestionStatus } from "models/question"
+import { QuestionStatus } from "models/question";
+import useStyles from "./styles";
 
 interface QuestionLabelStatusProps {
   typeStatus: string
 }
 
-const QuestionLabelStatus = memo((props: QuestionLabelStatusProps) => {
+const QuestionLabelStatus = (props: QuestionLabelStatusProps) => {
   const classes = useStyles();
   const { typeStatus, ...rest } = props;
 
@@ -23,5 +22,5 @@ const QuestionLabelStatus = memo((props: QuestionLabelStatusProps) => {
       {typeStatus}
     </div >
   );
-});
+};
 export default QuestionLabelStatus;

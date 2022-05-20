@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
-import { TextField, Typography, FormControl, InputAdornment } from '@material-ui/core';
+import { FormControl, InputAdornment, TextField, Typography } from '@material-ui/core';
+import clsx from 'clsx';
 // import { Visibility } from '@material-ui/icons/';
 import Images from 'config/images';
+import React from 'react';
 import useStyles from './styles';
-import clsx from 'clsx';
 
 interface InputsProps {
   title?: string,
@@ -19,7 +19,7 @@ interface InputsProps {
   autoComplete?: string,
   multiline?: boolean
 }
-const Inputs = memo(React.forwardRef((props: InputsProps, ref) => {
+const Inputs = React.forwardRef((props: InputsProps, ref) => {
   const classes = useStyles();
   const { 
     title,
@@ -80,7 +80,7 @@ const Inputs = memo(React.forwardRef((props: InputsProps, ref) => {
       />
     </FormControl>
   );
-}));
+});
 export default Inputs;
 
 

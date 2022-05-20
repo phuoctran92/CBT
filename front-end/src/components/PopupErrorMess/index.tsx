@@ -1,18 +1,18 @@
-import React, { memo } from 'react';
-import { Dialog, DialogTitle, Grid, Box } from '@material-ui/core';
-import useStyles from './styles';
+import { Box, Dialog, DialogTitle, Grid } from '@material-ui/core';
 import Buttons from 'components/Buttons';
 import images from 'config/images';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reducerType } from 'store/reducers';
 import * as actionGlobal from 'store/reducers/global/actionTypes';
+import useStyles from './styles';
 
 interface popupDeleteProps {
   messageLocal?: string,
   onClickCancel?: () => void
 }
 
-const PopupErrorMess = memo((props: popupDeleteProps) => {
+const PopupErrorMess = (props: popupDeleteProps) => {
   const { messageLocal, onClickCancel } = props;
   const messageError = useSelector((state: reducerType) => state.global.messageError)
   const messageSubError = useSelector((state: reducerType) => state.global.messageSubError)
@@ -54,7 +54,7 @@ const PopupErrorMess = memo((props: popupDeleteProps) => {
       </Grid>
     </Dialog>
   );
-});
+};
 export default PopupErrorMess;
 
 

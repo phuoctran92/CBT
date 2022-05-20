@@ -1,9 +1,8 @@
-import { memo, useEffect, useMemo, useState } from 'react';
+import { MatchingAnswer } from "modules/Question/Create/components/Matching/models";
 import ReactQuill from 'react-quill';
-import EditorToolbar, { redoChange, undoChange, createAnswer, formats, removeAnswer } from './EditorToolbar';
 import 'react-quill/dist/quill.snow.css';
+import EditorToolbar, { createAnswer, formats, redoChange, removeAnswer, undoChange } from './EditorToolbar';
 import './styles.css';
-import { MatchingAnswer } from "modules/Question/Create/components/Matching/models"
 interface EditorProps {
   placeholder?: string;
   onChangeQuestion: any;
@@ -13,7 +12,7 @@ interface EditorProps {
   answer: MatchingAnswer[]
 }
 
-export const Editor = memo((props: EditorProps) => {
+export const Editor = (props: EditorProps) => {
   const { onChangeQuestion, question, placeholder, className, answer, onChangeAnswer } = props
 
   const handleChange = (value) => {
@@ -57,6 +56,6 @@ export const Editor = memo((props: EditorProps) => {
       />
     </div>
   );
-});
+};
 
 export default Editor;

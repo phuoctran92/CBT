@@ -1,7 +1,6 @@
-import { memo } from 'react';
 import { IconButton } from "@material-ui/core";
-import useStyles from './styles';
 import clsx from 'clsx';
+import useStyles from './styles';
 
 interface ActionButtonProps {
   btnType: 'edit' | 'delete' | 'view' | 'share',
@@ -9,7 +8,7 @@ interface ActionButtonProps {
   disabled?: boolean
 }
 
-const ButtonAction = memo((props: ActionButtonProps) => {
+const ButtonAction = (props: ActionButtonProps) => {
   const classes = useStyles();
   const { disabled, btnType, onClick, ...rest } = props;
   return (
@@ -32,7 +31,7 @@ const ButtonAction = memo((props: ActionButtonProps) => {
       <div />
     </IconButton>
   )
-});
+};
 export default ButtonAction;
 
 

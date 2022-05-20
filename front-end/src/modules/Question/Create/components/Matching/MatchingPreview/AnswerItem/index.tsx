@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import useStyles from "./styles";
 
@@ -7,7 +6,7 @@ interface AnswerItemProps {
   index: any
 }
 
-const AnswerItem = memo((props: AnswerItemProps) => {
+const AnswerItem = (props: AnswerItemProps) => {
   const { content, index } = props
   const classes = useStyles()
 
@@ -30,6 +29,6 @@ const AnswerItem = memo((props: AnswerItemProps) => {
       </Draggable>
     </div>
   )
-});
+};
 
 export default AnswerItem
